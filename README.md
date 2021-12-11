@@ -15,7 +15,7 @@ To add a mapping request you should modify the file `claimed.txt`, add `<your wa
 In the PR you have to add:
 
 - Your public key
-- The signature obtained by signing `address:{your wallet address} name:{the name you want} ` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html))
+- The signature obtained by signing the data `<your wallet address>;< the name you want>` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html))
 
 ### How to get the public key
 
