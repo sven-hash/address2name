@@ -28,10 +28,10 @@ In the PR you have to add:
 
 #### Using curl
 
-1. `curl -X \
-  'http://127.0.0.1:12973/​wallets​/{wallet_name}​/addresses​/{address}' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
+1. `curl -X 
+  'http://127.0.0.1:12973/​wallets​/{wallet_name}​/addresses​/{address}' 
+  -H 'accept: application/json' 
+  -H 'Content-Type: application/json' 
   `
 
 2. Copy the public and add it to the PR
@@ -47,10 +47,10 @@ In the PR you have to add:
 
 #### Using curl
 
-1. `curl -X 'POST' \
-  'http://127.0.0.1:12973/wallets/{wallet-name}/sign' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
+1. `curl -X 'POST' 
+  'http://127.0.0.1:12973/wallets/{wallet-name}/sign' 
+  -H 'accept: application/json' 
+  -H 'Content-Type: application/json' 
   -d '{
   "data": "{your data}"
 }'`
