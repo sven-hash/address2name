@@ -17,7 +17,9 @@ To add a mapping request you should do a PR with some information, to be sure th
 
 ## Data format for pull request
 
-Format in the file: `address;timestamp;name`
+File to use: claimed.txt
+
+Format in the file: `address;name`
 
 To get the timestamp you could use [timestamp.online](https://timestamp.online/)
 
