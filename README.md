@@ -12,9 +12,15 @@ It is used in:
 
 To add a mapping request you should do a PR with some information, to be sure this is you, you have to sign the data:
 
-- `address;timestamp;name`
-- signature
-- your public key
+`Name: {the name you want} address: {your wallet address}` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html)
+
+
+## Data format for pull request
+
+Format in the file: `address;timestamp;name`
+
+To get the timestamp you could use [timestamp.online](https://timestamp.online/)
+
 
 ### How to sign
 
