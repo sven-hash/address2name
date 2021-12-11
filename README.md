@@ -10,19 +10,31 @@ It is used in:
 
 ## Add a mapping
 
-To add a mapping request you should do a PR with some information, to be sure this is you, you have to sign the data:
+To add a mapping request you should modify the file `claimed.txt`, add `<your wallet address>;< the name you want>` and create a pull request 
 
-`Name: {the name you want} address: {your wallet address}` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html)
+In the PR you have to add:
 
+- Your public key
+- The signature obtained by signing `address:{your wallet address} name:{the name you want} ` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html))
 
-## Data format for pull request
+### How to get the public key
 
-File to use: claimed.txt
+#### Using swagger
 
-Format in the file: `address;name`
+1. Go to [http://127.0.0.1:12973/docs](http://127.0.0.1:12973/docs) under `Wallets`
+2. Open the entry `/wallets​/{wallet_name}​/addresses​/{address}` (unlock your wallet first)
+3. Write your wallet name and the address you want. Then execute
+4. Scroll down, you should see an entry with `"publickey":"..."`. Copy the signature and add it to the PR
 
-To get the timestamp you could use [timestamp.online](https://timestamp.online/)
+#### Using curl
 
+1. `curl -X \
+  'http://127.0.0.1:12973/​wallets​/{wallet_name}​/addresses​/{address}' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  `
+
+2. Copy the public and add it to the PR
 
 ### How to sign
 
