@@ -1,21 +1,31 @@
 # address2name
 
-This repo store the mapping between address and name for [Alephium](alephium.org)
+Store the mapping between address and name for [Alephium](alephium.org)
 
-
-It is used in:
+Used in:
 
 - [https://t.me/alephiumgroup](https://t.me/alephiumgroup)
 - [https://twitter.com/AlephiumWW](https://twitter.com/AlephiumWW)
 
-## Add a mapping
+## How to claim
 
-To add a mapping request you should modify the file `claimed.txt`, add `<your wallet address>;< the name you want>` and create a pull request 
+To add a mapping request you should modify the file `claimed.txt`, add `<your wallet address>;< the name you want>` and create a merge request 
 
-In the PR you have to add:
+In the MR you have to add:
 
-- Your public key
-- The signature obtained by signing the data `<your wallet address>;< the name you want>` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html))
+- Title: name you want
+- Content
+
+```
+Validation data:
+{
+  "data": "<data>",
+  "signature": "<signature>",
+  "publicKey": "<your public key>"
+}
+```
+
+Note: The signature obtained by signing the data `<your wallet address>;< the name you want>` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html))
 
 ### How to get the public key
 
@@ -33,7 +43,6 @@ In the PR you have to add:
   -H 'accept: application/json' 
   -H 'Content-Type: application/json' 
   `
-
 2. Copy the public and add it to the PR
 
 ### How to sign
