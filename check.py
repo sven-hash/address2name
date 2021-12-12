@@ -10,17 +10,21 @@ addressSign = sys.argv[2]
 print(f"\nAddress who signed: {addressDecoded}")
 print(f"Address to mark: {addressSign}")
 
+nameHex=sys.argv[3]
 
 data = {
-        "data": sys.argv[3],
+        "data": nameHex,
         "signature": sys.argv[4],
         "publicKey": sys.argv[1]
 }
 
+asciiName=bytes.fromhex(nameHex).decode("ASCII") 
+                        
 
 r = requests.post("https://mainnet-wallet.alephium.org/utils/verify-signature",json=data)
 
 print(f"\nIs signature valid: {r.text}")
 print(f"Is address legitimate: {addressDecoded == addressSign}")
+print(f"Data: {asciiName}")
 
 
