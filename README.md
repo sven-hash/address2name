@@ -32,6 +32,7 @@ Validation data:
 
 Note: The signature obtained by signing the data `<your wallet address>;< the name you want>` (this should be converted in hexadecimal [converter](https://www.rapidtables.com/convert/number/ascii-to-hex.html))
 
+
 ### How to get the public key
 
 #### Using swagger
