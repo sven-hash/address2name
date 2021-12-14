@@ -9,7 +9,7 @@ Used in:
 
 ## How to claim
 
-To add a mapping request you should modify the file `claimed.txt`:
+To add a mapping request you should modify the file `known-wallets.txt`:
 
 - If your address already exists modify the associated name and replace `identified` or `guessed` by `verified` 
 - If youe address doesn't exists in the file add `<your wallet address>;< the name you want>;verified` 
