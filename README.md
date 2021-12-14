@@ -9,7 +9,12 @@ Used in:
 
 ## How to claim
 
-To add a mapping request you should modify the file `claimed.txt`, add `<your wallet address>;< the name you want>` and create a merge request 
+To add a mapping request you should modify the file `claimed.txt`:
+
+- If your address already exists modify the associated name and replace `identified` by `verified` 
+- If youe address doesn't exists in the file add `<your wallet address>;< the name you want>;verified` 
+
+**And create a merge request with the following information:**
 
 In the MR you have to add:
 
