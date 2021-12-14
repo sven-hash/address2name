@@ -14,3 +14,4 @@
 19HfRekCTDw3ez3yNhXcUFRK1Ho5zkpghNXueeEDF43Yo;Pool ALPH;verified
 16sR3EMn2BdFgENRhz6N2TJ78nfaADdv3prKXUQMaB6m3;Pool ALPH;verified
 12mfm8Rj6oVQ6nC2DfndDU2FJc1euAsiLMU7Jia1gw1ZR;Pool ALPH;verified
+1EVYU3piNnkNDMxwpT915SKseiP5DpnhvgKRhafVWGz4C;Bob Yellowbeard;identified
