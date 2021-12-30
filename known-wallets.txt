@@ -30,4 +30,5 @@
 1EwbqNDJAvr569w1fSEMWUy4T6vL7FWg4hKh4upMeUa8b;devgent miner;identified
 15sywPqA7ZLixvijV4G7dt2HkmhKghDFwajm9yadnJxoJ;jcrysilva;identified
 1AUxr5dKMWcu8XSVuwE2XZ7NXTMxu3X55VP5mnAkmmSi7;Palitrex;identified
+1JBgqXjv5o9k4mZNqiTAQuZB9C5UWXHFc1ma7q4sdurFp;gvakhrushev;identified
 
