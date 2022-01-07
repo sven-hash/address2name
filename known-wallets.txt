@@ -34,7 +34,6 @@
 1APtWWzr6VkbLEmcGMnJa4CcDE2kX58NrN6pqY1xVGZPy;;guessed;gateio
 16Wsujp762z2ttvh5fCnCEgKr9tYeiDhSvUn6oKhHswCZ;;guessed;gateio
 1ABdiAm7g8ht6Z99K2vGUbji7AaXaYuWVibk8vQU43vJe;;identified;gateio
-1GYS823eN3mqUBC5YpkVBwCsWcb3b5vTWydAYm6umKsxh;;identified;gateio
 1CmyzAjA9YSq6kw8oXPPf2mEUGTxhU2fqKnBt8yyzZ7un;;identified;gateio
 18vuzeQJWMHH9LwdZ87tpLC9omW39924Lhr7ob4VMVRX6;;guessed;gateio
 
