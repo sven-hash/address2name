@@ -50,5 +50,5 @@
 1E3ogdPgkeNTpqAzhGRyTY4s7JkWXyDmAhRaSyz2CKgL3;;guessed;gateio	
 1C6Xdau6SjJh9p11ze9EVmPq4976gj1q9qhwHoqq8GJdy;;guessed;gateio
 14SxashLXWXVhwfSFK7niWHrAEk11M3eXnqdfoQviH9te;;guessed;gateio
-17R6Ptkz9i1LhiKyMhnitUMkgFygGeeQUFZvRx6GgV8Fc;Gateio's centralized wallet;identified;gateio
+17R6Ptkz9i1LhiKyMhnitUMkgFygGeeQUFZvRx6GgV8Fc;Gateio's centralized wallet;identified
 
