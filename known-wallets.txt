@@ -54,7 +54,10 @@
 165g1Vkx8gnDZ3CCxPE81fgYeNaH8HnBvYQDBXr9U4AT7;WoolyPooly;guessed
 19nnsAodfSnrnVmmPrHN3ZaycHFz4NSgMmmW9YG3TEdGx;WoolyPooly;guessed
 1FNapoV7CnCzmQWFFuSezhgjKGmz6897yGWafsRhWSV1k;WoolyPooly;guessed
-
+1GY1EBQAW3tqHpwnRyon7M32VfU3k9K2EARdHPnosKjLW;Coinhunters Pool;verified
+1BRuUfJeuaVAAh9QQRsP4DH7RdJL83TwHWNyWLgx69jXc;Coinhunters Pool;verified
+1CaEXVpPVGHjA4BV8znXAYKM9jR11B28XZ9QnsByhbJBJ;Coinhunters Pool;verified
+1EiSSuHFdJhDZgjZ5M6kHSoxDC1jrHBmhnLrz37Qc2DFU;Coinhunters Pool;verified
 
 
 
