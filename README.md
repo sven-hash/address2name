@@ -5,6 +5,7 @@ Store the mapping between address and name for [Alephium](alephium.org)
 Used in:
 
 - [https://t.me/alephiumgroup](https://t.me/alephiumgroup)
+- [https://t.me/alephiumin](https://t.me/alephiumin)
 - [https://twitter.com/AlephiumWW](https://twitter.com/AlephiumWW)
 
 ## How to claim
@@ -67,4 +68,3 @@ Note: The signature obtained by signing the data `<your wallet address>;< the na
 }' `
 
 2. Copy the signature and add it to the PR
- 

@@ -26,5 +26,3 @@ r = requests.post("https://mainnet-wallet.alephium.org/utils/verify-signature",j
 print(f"\nIs signature valid: {r.text}")
 print(f"Is address legitimate: {addressDecoded == addressSign}")
 print(f"Data: {asciiName}")
-
-
