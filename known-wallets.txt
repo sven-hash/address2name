@@ -69,4 +69,6 @@
 19TUu8oE8dfDzH3RuJhACdBFh3Wndez7xZ8Fqjb13GiKd;Monty;verified;;
 13vPxxvdLG5Z9pmzbeb7xLbxpqX8HN7hT3WbyE36eqMeV;Metapool.tech;verified;;Pool
 19TJU5W2YzwhLwtUXECA8AoFjxdk6CvVuLkaDczLWVCy6;alephium-pool.com;guessed;;Pool
-126rZSbRyRM4xMUN3VUoVBgqiChMCopySRDHkmgtr6HWe:alephium-pool.com;guessed;;Pool
+126rZSbRyRM4xMUN3VUoVBgqiChMCopySRDHkmgtr6HWe;alephium-pool.com;guessed;;Pool
+14vYkbiJZCcZ9ZfKuf7exu4XsjJH96CSJo7GPaq1wqJog;alephium-pool.com;guessed;;Pool
+1GNZSTNTcJL3VcHj7izRHcn1xGuKAogcxhyPiLYADQY47;alephium-pool.com;guessed;;Pool
