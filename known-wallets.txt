@@ -72,3 +72,4 @@
 126rZSbRyRM4xMUN3VUoVBgqiChMCopySRDHkmgtr6HWe;alephium-pool.com;guessed;;Pool
 14vYkbiJZCcZ9ZfKuf7exu4XsjJH96CSJo7GPaq1wqJog;alephium-pool.com;guessed;;Pool
 1GNZSTNTcJL3VcHj7izRHcn1xGuKAogcxhyPiLYADQY47;alephium-pool.com;guessed;;Pool
+1FGF4qXtTWLsZ8ANigFPkpec9g9n5gEvXfiHBRkjKqw9v;;guessed;tradingogre;
