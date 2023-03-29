@@ -50,7 +50,7 @@
 14SxashLXWXVhwfSFK7niWHrAEk11M3eXnqdfoQviH9te;;guessed;gateio;
 1Ds3kYiTNkKMkPSs6JothpZAALV3dpevwSs16xUApf3V3;WoolyPooly;guessed;;Pool
 165g1Vkx8gnDZ3CCxPE81fgYeNaH8HnBvYQDBXr9U4AT7;WoolyPooly;guessed;;Pool
-19nnsAodfSnrnVmmPrHN3ZaycHFz4NSgMmmW9YG3TEdGx;WoolyPooly;guessed;;Pool
+19nnsAodfSnrnVmmPrHN3ZaycHFz4NSgMmmW9YG3TEdGx;Metapool;guessed;;Pool
 1FNapoV7CnCzmQWFFuSezhgjKGmz6897yGWafsRhWSV1k;WoolyPooly;guessed;;Pool
 1GY1EBQAW3tqHpwnRyon7M32VfU3k9K2EARdHPnosKjLW;alph.coinhunters.space;identified;;Pool
 1BRuUfJeuaVAAh9QQRsP4DH7RdJL83TwHWNyWLgx69jXc;alph.coinhunters.space;identified;;Pool
@@ -73,3 +73,10 @@
 14vYkbiJZCcZ9ZfKuf7exu4XsjJH96CSJo7GPaq1wqJog;alephium-pool.com;guessed;;Pool
 1GNZSTNTcJL3VcHj7izRHcn1xGuKAogcxhyPiLYADQY47;alephium-pool.com;guessed;;Pool
 1FGF4qXtTWLsZ8ANigFPkpec9g9n5gEvXfiHBRkjKqw9v;Tradeogre.com;guessed;tradeogre;Exchange
+19WzSnmNC1SQ6v7RpFFXhpcMcFSiwM4nKTSdbwgSJfSHy;herominers.com;guessed;;Pool
+14kSoi8pFMn2wMJFZJgGpFSA7GyNMtwWKnsKc1KidZ8Bu;herominers.com;guessed;;Pool
+12jK2jHyyJTJyuRMRya7QJSojgVnb5yh4HVzNNw6BTBDF;herominers.com;guessed;;Pool
+134dmgh9AZNimp9ZAYpWBTwv3ddouETBTyq6134mBvVk2;woolypooly.com;guessed;;Pool
+1AYR6H9LqCUN6BsRCQg2eiHHUYZ6hBbvyRz2AYzda1YVa;Metapool;guessed;;Pool
+163CahfVB61xn9pY8dvFLznETGzCopPTwFTvHqmno3Fq6;Metapool;guessed;;Pool
+
