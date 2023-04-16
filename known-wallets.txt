@@ -79,4 +79,5 @@
 134dmgh9AZNimp9ZAYpWBTwv3ddouETBTyq6134mBvVk2;woolypooly.com;guessed;;Pool
 1AYR6H9LqCUN6BsRCQg2eiHHUYZ6hBbvyRz2AYzda1YVa;Metapool.tech;guessed;;Pool
 163CahfVB61xn9pY8dvFLznETGzCopPTwFTvHqmno3Fq6;Metapool.tech;guessed;;Pool
+1B6nLg9uD7TeQvWk7fpYvBcWExSjjXNLvMv8CfGr5gY2U;bitmart.com;guessed;;Exchange
 
