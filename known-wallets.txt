@@ -79,5 +79,6 @@
 134dmgh9AZNimp9ZAYpWBTwv3ddouETBTyq6134mBvVk2;woolypooly.com;guessed;;Pool
 1AYR6H9LqCUN6BsRCQg2eiHHUYZ6hBbvyRz2AYzda1YVa;Metapool.tech;guessed;;Pool
 163CahfVB61xn9pY8dvFLznETGzCopPTwFTvHqmno3Fq6;Metapool.tech;guessed;;Pool
-1B6nLg9uD7TeQvWk7fpYvBcWExSjjXNLvMv8CfGr5gY2U;bitmart.com;guessed;;Exchange
+1B6nLg9uD7TeQvWk7fpYvBcWExSjjXNLvMv8CfGr5gY2U;Bitmart.com;guessed;bitmart;Exchange
 1CeynZbQKCZ6JPZ8ciqYpS9ps7A8rkhdoiBjpPm2fjLh1;Robbie;verified;;
+1Fc5SzHMXTHXg4XzmbWwbqnUAYYuVhtHR59VazawWmsgB;Txbit.io;guessed;txbit;Exchange
