@@ -83,3 +83,4 @@
 1CeynZbQKCZ6JPZ8ciqYpS9ps7A8rkhdoiBjpPm2fjLh1;Robbie;verified;;
 1Fc5SzHMXTHXg4XzmbWwbqnUAYYuVhtHR59VazawWmsgB;Txbit.io;guessed;txbit;Exchange
 1F8BAnQ8TspUcpLKHzxyaUMZ8fw3YvT3NJ3VQuY43dnFA;solopool.org;guessed;;Pool
+1CXiWiTroEdLJ4vYH8Sg6TVyCkgLPp33X7hqTiDcevYgD;alephium-pool.com;guessed;;Pool
