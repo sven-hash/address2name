@@ -84,5 +84,3 @@
 1Fc5SzHMXTHXg4XzmbWwbqnUAYYuVhtHR59VazawWmsgB;Txbit.io;guessed;txbit;Exchange
 1F8BAnQ8TspUcpLKHzxyaUMZ8fw3YvT3NJ3VQuY43dnFA;solopool.org;guessed;;Pool
 1CXiWiTroEdLJ4vYH8Sg6TVyCkgLPp33X7hqTiDcevYgD;alephium-pool.com;guessed;;Pool
-25ywM8iGxKpZWuGA5z6DXKGcZCXtPBmnbQyJEsjvjjWTy;ayin.app;verified;Ayin-Alph LP;Exchange
-226T1XspViny5o6Ce1jQR6UCGrDXuq5NBVoCFNufMEWBZ;Bridge;verified;;Bridge
