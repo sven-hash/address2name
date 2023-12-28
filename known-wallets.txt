@@ -87,4 +87,5 @@
 25ywM8iGxKpZWuGA5z6DXKGcZCXtPBmnbQyJEsjvjjWTy;ayin.app;verified;Ayin-Alph LP;Exchange
 226T1XspViny5o6Ce1jQR6UCGrDXuq5NBVoCFNufMEWBZ;Bridge;verified;;Bridge
 1Dr9dDi2ydCvaJ5fBf9TsPSNouuZFdQXa6yrMBZW26cro;Mexc.com;guessed;mexc;Exchange
+19EeatT7mdZAK36SFRj4zf6Wv98fESGv8CN42YXnQTcFQ;Coinmetro.com;guessed;coinmetro;Exchange
 
