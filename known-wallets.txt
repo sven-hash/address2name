@@ -88,4 +88,5 @@
 226T1XspViny5o6Ce1jQR6UCGrDXuq5NBVoCFNufMEWBZ;Bridge;verified;;Bridge
 1Dr9dDi2ydCvaJ5fBf9TsPSNouuZFdQXa6yrMBZW26cro;Mexc.com;guessed;mexc;Exchange
 19EeatT7mdZAK36SFRj4zf6Wv98fESGv8CN42YXnQTcFQ;Coinmetro.com;guessed;coinmetro;Exchange
+14pnhqYUaGKcJq5kra3ARogumSFFsRoPaHSAkUB2KqoQY;Coinex.com;guessed;coinex;Exchange
 
