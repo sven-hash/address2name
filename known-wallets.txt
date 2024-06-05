@@ -90,4 +90,9 @@
 19EeatT7mdZAK36SFRj4zf6Wv98fESGv8CN42YXnQTcFQ;Coinmetro.com;guessed;coinmetro;Exchange
 14pnhqYUaGKcJq5kra3ARogumSFFsRoPaHSAkUB2KqoQY;Coinex.com;guessed;coinex;Exchange
 1GS8Hv3Fxm2Zduxek9Kr85LL1qAC4tDzbVaUiJbcex3qV;Bitget.com;guessed;bitget;Exchange
-
+19v14XFf5wNLzoNxYBCyRxfXt7ZFFi2YNLYCKsKzNvtaU;Farmer;verified;;
+1z8fApfr5aL55PpdRnkDpSgBCr8xwSDKMyk5oYWBXtta;Farmer;verified;;
+15zsXLCjXmhvydMcdNVECbdDNZrDXdC7Xe331bT5veHWp;Farmer;verified;;
+13UrPueEoMPLkCnoC1RqrVYe2WT92DxeoCc7zo5neE8CB;Farmer;verified;;
+1Bzy8hvog6bNfevxrye4uPCDHAVPkzvFeSLs21WdZCPW5;Farmer;verified;;
+162aufXbuQ8GMLFxBGtxucKGdd2ZVBzWT2giLHBzvvgUV;Farmer;verified;;
