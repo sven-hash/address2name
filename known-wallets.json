@@ -1,0 +1,688 @@
+[
+  {
+    "address": "1DxSgjSjsweEoyiykwnWARhws9f26TZLfGXRevLx44NXw",
+    "name": "cgs",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1EwqJWMZSUFHWCD5ygHVySsEHnwzTH1z7ZXQ1ikLbyNdY",
+    "name": "cgs miner",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "17GEWk4r6goNXVoZr8YMivk6kn4nkR8TJYmF7H5vt98ze",
+    "name": "cgs miner",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "17cZSksDNXYXyE4mrimbGDbmmJqrdMtwMdM7rpmitpz8D",
+    "name": "cgs miner",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "16cknm8JWGedDSvyzXB5J5FPnGig5szrkJrgN2H4UUN2p",
+    "name": "cgs miner",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1DEfJ1TdDBg3QJKKyFgMDcbRvN5TBQ2DXjk7WE5H5SQTf",
+    "name": "Crypto Club Mining Project",
+    "state": "verified#MR-2",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1A4MWZve8d6r7tYBNpDPXUitHRqckfk73EhtXukshpW46",
+    "name": "Sesame wallet",
+    "state": "identified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1AmbA9FLB4ioUGFvibpamJ4VApeGLzXfJRjYJcrZvZcNL",
+    "name": "Rewards Alephium",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Alephium"
+  },
+  {
+    "address": "17vLKKTgL5vzZ6MFxFUEevaBkqrhEu4e5xUELFvfSvXL6",
+    "name": "Pool test",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1AhDSQKjRWXRNxuiCiP3BQfB2gVXzHoVbcv4K6V6HMQ2a",
+    "name": "Pool test",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1DSzpfJwBnsF1AThdLKYprZJNAan5vEWqdt6Xqa67N5Bk",
+    "name": "Pool test",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1CP5p3iJJ62kcXF87af1n552oJ6Nssva3q3zyufbzsX4C",
+    "name": "Pool test",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "138X71oRcfvF9UL9onk7Lq7chcp1EDtMhCWYDRafHneTq",
+    "name": "Sesame Miner",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1HxtKsWNxA4boDFHDk3yZYXXwp1eTdim3RA95BecsSmMJ",
+    "name": "Sesame Miner",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "18AmsBHiBAGrz1fcYisn52Rcgjp3rkRcFZyb6AY8SSXHb",
+    "name": "Sesame Miner",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "193i2PYgRGMUDxH1svTFJywg5XdxJtdHdmEkLAQhxsJCq",
+    "name": "Bill Bones",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1HSajUFSnCbBV5cXtwsCkWQ8jVAwBTjajun9qMXW8kG6m",
+    "name": "Metapool.tech",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "18BHr6VE31bhSHJoBdmkrDGPKj1H3QQ6Ui2kakYbAWBqi",
+    "name": "Metapool.tech",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "13vzh4LZJrTekg53tcAYzz9ETNNz12BaUHsGmjqPpXUTE",
+    "name": "Metapool.tech",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "159STVKgoVi2KLwJSY7LDewjbq9b5QDw259QVS3sBxqvt",
+    "name": "Metapool.tech",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1FafNFQw3ot6ZLVfiJUFCDM6AquxbDBg3iKwkCn53G1Ds",
+    "name": "Pool test",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "19HfRekCTDw3ez3yNhXcUFRK1Ho5zkpghNXueeEDF43Yo",
+    "name": "Pool test",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "16sR3EMn2BdFgENRhz6N2TJ78nfaADdv3prKXUQMaB6m3",
+    "name": "Pool test",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "12mfm8Rj6oVQ6nC2DfndDU2FJc1euAsiLMU7Jia1gw1ZR",
+    "name": "Pool test",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1EVYU3piNnkNDMxwpT915SKseiP5DpnhvgKRhafVWGz4C",
+    "name": "Bob Yellowbeard",
+    "state": "identified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1GV4EfsCmcvRf9UpQfkDEwwUD6HMVGbQyEMbAvTUUenhN",
+    "name": "Miner Bob Yellowbeard",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1Dp2KG3cgawa32V4DRgLYMxZG4ubEoDpvers7pfj97VRx",
+    "name": "Miner Bob Yellowbeard",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "112ZBjKPnnAJJ2PapKAnzS8n3sgHXuEack1jXpQzyRWHP",
+    "name": "Miner Bob Yellowbeard",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1GgWLBwWUh8Eit4PxZrVwxJBWvxqwEgGE2asaa1eUqdC7",
+    "name": "Miro",
+    "state": "identified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1FDxmNHmEFR5Yqhn5DukJRuHwzu7FA7gopoP2HqHxDtQU",
+    "name": "devgent miner",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1DBNiQ84wwKjaStZ8K1hzUcTQNtTmCxvX9S8DEgTYjRUy",
+    "name": "devgent miner",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1hN1LJ5aEXgpwU4PZ27YcEjcnmNXaWB8KcBt9kE4bedD",
+    "name": "devgent miner",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "1EwbqNDJAvr569w1fSEMWUy4T6vL7FWg4hKh4upMeUa8b",
+    "name": "devgent miner",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Miner"
+  },
+  {
+    "address": "15sywPqA7ZLixvijV4G7dt2HkmhKghDFwajm9yadnJxoJ",
+    "name": "jcrysilva",
+    "state": "identified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1JBgqXjv5o9k4mZNqiTAQuZB9C5UWXHFc1ma7q4sdurFp",
+    "name": "gvakhrushev",
+    "state": "identified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1APtWWzr6VkbLEmcGMnJa4CcDE2kX58NrN6pqY1xVGZPy",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "16Wsujp762z2ttvh5fCnCEgKr9tYeiDhSvUn6oKhHswCZ",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1ABdiAm7g8ht6Z99K2vGUbji7AaXaYuWVibk8vQU43vJe",
+    "name": "",
+    "state": "identified",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1CmyzAjA9YSq6kw8oXPPf2mEUGTxhU2fqKnBt8yyzZ7un",
+    "name": "",
+    "state": "identified",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "18vuzeQJWMHH9LwdZ87tpLC9omW39924Lhr7ob4VMVRX6",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "17FLabwRFYJnZ2FkEaLgucusnZMMNKKQTpLQWa5JRviiL",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1BvE5LXeHco6Y1ypngK1276YaSyTbQkjReYnYpMbQTCfs",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "17amzXyMYMgtYkji67qC8vqkgUktyi81vyCYFDpaNWtTy",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "17R6Ptkz9i1LhiKyMhnitUMkgFygGeeQUFZvRx6GgV8Fc",
+    "name": "Gate.io",
+    "state": "identified",
+    "exchangename": "gateio",
+    "type": "Exchange"
+  },
+  {
+    "address": "1BHVvHLb2ET13SaEZ2HAASwjsgouGgWPwjTeFbRHx6ezu",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "17E3FQd7wQAbxE3B5Eeygi8jEpxZmD1kgFUexLYPUs4bA",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1DPodq88uWM77cPwPSb9LgvueLQQEdpZ8eEJJ6vcjAd4X",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1E3ogdPgkeNTpqAzhGRyTY4s7JkWXyDmAhRaSyz2CKgL3",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1C6Xdau6SjJh9p11ze9EVmPq4976gj1q9qhwHoqq8GJdy",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "14SxashLXWXVhwfSFK7niWHrAEk11M3eXnqdfoQviH9te",
+    "name": "",
+    "state": "guessed",
+    "exchangename": "gateio",
+    "type": ""
+  },
+  {
+    "address": "1Ds3kYiTNkKMkPSs6JothpZAALV3dpevwSs16xUApf3V3",
+    "name": "WoolyPooly",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "165g1Vkx8gnDZ3CCxPE81fgYeNaH8HnBvYQDBXr9U4AT7",
+    "name": "WoolyPooly",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "19nnsAodfSnrnVmmPrHN3ZaycHFz4NSgMmmW9YG3TEdGx",
+    "name": "Metapool.tech",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1FNapoV7CnCzmQWFFuSezhgjKGmz6897yGWafsRhWSV1k",
+    "name": "WoolyPooly",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1GY1EBQAW3tqHpwnRyon7M32VfU3k9K2EARdHPnosKjLW",
+    "name": "alph.coinhunters.space",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1BRuUfJeuaVAAh9QQRsP4DH7RdJL83TwHWNyWLgx69jXc",
+    "name": "alph.coinhunters.space",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1CaEXVpPVGHjA4BV8znXAYKM9jR11B28XZ9QnsByhbJBJ",
+    "name": "alph.coinhunters.space",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1EiSSuHFdJhDZgjZ5M6kHSoxDC1jrHBmhnLrz37Qc2DFU",
+    "name": "alph.coinhunters.space",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "15znczEZD5osxcB2HmqLebm6yf93PoNVPnEdU1KkffYSN",
+    "name": "gramswap.app",
+    "state": "identified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1EW4DKjCvXWEbipBNFxf1N3UDhdYmqX7NBmjjizvd9j74",
+    "name": "alph-pool.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "17yg3UYNodTsg6TjbymroUpiyp1aDXUJF2MA2AVbL85JT",
+    "name": "alph-pool.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1CKDMPhxEgjCYUUoAtuq5q5CqeH3XQvj3MXjiARriWfRU",
+    "name": "alph-pool.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "13XkffE3aSgkKJLzE8xaE9JqhrRpfHkNmbSfzZaYqKMTW",
+    "name": "alph-pool.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1Gzp3Wc42fanrbAqknYmSaZLfC567bP3JWprDCiuJ8rbP",
+    "name": "herominers.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "134RbnQXBWFCnR4HhmEgFjkotkdmNzNeYqhQ84ZKjHnjN",
+    "name": "woolypooly.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1DKWCEc9HjhchKoMCMA4J1nbNGNjrAoPFnkcgA1w6h7jh",
+    "name": "woolypooly.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "12WhBVry3PXzTyCm389eSZMVsDSQZjGh5csv6CPrNfgtz",
+    "name": "woolypooly.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1BU6eg4bnn4gFgpSx6U96xqwZxyJHwEdMajCE3wminc3e",
+    "name": "woolypooly.com",
+    "state": "identified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "19TUu8oE8dfDzH3RuJhACdBFh3Wndez7xZ8Fqjb13GiKd",
+    "name": "Monty",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "13vPxxvdLG5Z9pmzbeb7xLbxpqX8HN7hT3WbyE36eqMeV",
+    "name": "Metapool.tech",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "19TJU5W2YzwhLwtUXECA8AoFjxdk6CvVuLkaDczLWVCy6",
+    "name": "alephium-pool.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "126rZSbRyRM4xMUN3VUoVBgqiChMCopySRDHkmgtr6HWe",
+    "name": "alephium-pool.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "14vYkbiJZCcZ9ZfKuf7exu4XsjJH96CSJo7GPaq1wqJog",
+    "name": "alephium-pool.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1GNZSTNTcJL3VcHj7izRHcn1xGuKAogcxhyPiLYADQY47",
+    "name": "alephium-pool.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1FGF4qXtTWLsZ8ANigFPkpec9g9n5gEvXfiHBRkjKqw9v",
+    "name": "Tradeogre.com",
+    "state": "guessed",
+    "exchangename": "tradeogre",
+    "type": "Exchange"
+  },
+  {
+    "address": "19WzSnmNC1SQ6v7RpFFXhpcMcFSiwM4nKTSdbwgSJfSHy",
+    "name": "herominers.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "14kSoi8pFMn2wMJFZJgGpFSA7GyNMtwWKnsKc1KidZ8Bu",
+    "name": "herominers.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "12jK2jHyyJTJyuRMRya7QJSojgVnb5yh4HVzNNw6BTBDF",
+    "name": "herominers.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "134dmgh9AZNimp9ZAYpWBTwv3ddouETBTyq6134mBvVk2",
+    "name": "woolypooly.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1AYR6H9LqCUN6BsRCQg2eiHHUYZ6hBbvyRz2AYzda1YVa",
+    "name": "Metapool.tech",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "163CahfVB61xn9pY8dvFLznETGzCopPTwFTvHqmno3Fq6",
+    "name": "Metapool.tech",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1B6nLg9uD7TeQvWk7fpYvBcWExSjjXNLvMv8CfGr5gY2U",
+    "name": "Bitmart.com",
+    "state": "verified",
+    "exchangename": "bitmart",
+    "type": "Exchange"
+  },
+  {
+    "address": "1CeynZbQKCZ6JPZ8ciqYpS9ps7A8rkhdoiBjpPm2fjLh1",
+    "name": "Robbie",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1Fc5SzHMXTHXg4XzmbWwbqnUAYYuVhtHR59VazawWmsgB",
+    "name": "Txbit.io",
+    "state": "guessed",
+    "exchangename": "txbit",
+    "type": "Exchange"
+  },
+  {
+    "address": "1F8BAnQ8TspUcpLKHzxyaUMZ8fw3YvT3NJ3VQuY43dnFA",
+    "name": "solopool.org",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "1CXiWiTroEdLJ4vYH8Sg6TVyCkgLPp33X7hqTiDcevYgD",
+    "name": "alephium-pool.com",
+    "state": "guessed",
+    "exchangename": "",
+    "type": "Pool"
+  },
+  {
+    "address": "25ywM8iGxKpZWuGA5z6DXKGcZCXtPBmnbQyJEsjvjjWTy",
+    "name": "ayin.app",
+    "state": "verified",
+    "exchangename": "Ayin-Alph LP",
+    "type": "Exchange"
+  },
+  {
+    "address": "226T1XspViny5o6Ce1jQR6UCGrDXuq5NBVoCFNufMEWBZ",
+    "name": "Bridge",
+    "state": "verified",
+    "exchangename": "",
+    "type": "Bridge"
+  },
+  {
+    "address": "1Dr9dDi2ydCvaJ5fBf9TsPSNouuZFdQXa6yrMBZW26cro",
+    "name": "Mexc.com",
+    "state": "guessed",
+    "exchangename": "mexc",
+    "type": "Exchange"
+  },
+  {
+    "address": "19EeatT7mdZAK36SFRj4zf6Wv98fESGv8CN42YXnQTcFQ",
+    "name": "Coinmetro.com",
+    "state": "guessed",
+    "exchangename": "coinmetro",
+    "type": "Exchange"
+  },
+  {
+    "address": "14pnhqYUaGKcJq5kra3ARogumSFFsRoPaHSAkUB2KqoQY",
+    "name": "Coinex.com",
+    "state": "guessed",
+    "exchangename": "coinex",
+    "type": "Exchange"
+  },
+  {
+    "address": "1GS8Hv3Fxm2Zduxek9Kr85LL1qAC4tDzbVaUiJbcex3qV",
+    "name": "Bitget.com",
+    "state": "guessed",
+    "exchangename": "bitget",
+    "type": "Exchange"
+  },
+  {
+    "address": "19v14XFf5wNLzoNxYBCyRxfXt7ZFFi2YNLYCKsKzNvtaU",
+    "name": "Farmer",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1z8fApfr5aL55PpdRnkDpSgBCr8xwSDKMyk5oYWBXtta",
+    "name": "Farmer",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "15zsXLCjXmhvydMcdNVECbdDNZrDXdC7Xe331bT5veHWp",
+    "name": "Farmer",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "13UrPueEoMPLkCnoC1RqrVYe2WT92DxeoCc7zo5neE8CB",
+    "name": "Farmer",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "1Bzy8hvog6bNfevxrye4uPCDHAVPkzvFeSLs21WdZCPW5",
+    "name": "Farmer",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  },
+  {
+    "address": "162aufXbuQ8GMLFxBGtxucKGdd2ZVBzWT2giLHBzvvgUV",
+    "name": "Farmer",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
+  }
+]
