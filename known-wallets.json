@@ -644,6 +644,13 @@
     "type": "Exchange"
   },
   {
+    "address": "1Fa7ioV6o2g8WdvYBRqQKFQoNfN4Mws1Hx3kRtMgNmFRo",
+    "name": "Biconomy.com",
+    "state": "guessed",
+    "exchangename": "biconomy",
+    "type": "Exchange"
+  },
+  {
     "address": "19v14XFf5wNLzoNxYBCyRxfXt7ZFFi2YNLYCKsKzNvtaU",
     "name": "Farmer",
     "state": "verified",
