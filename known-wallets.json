@@ -698,5 +698,12 @@
     "state": "verified",
     "exchangename": "",
     "type": ""
+  },
+  {
+    "address": "16GyxESLmBRzFbJ2bQm7ShmGUL412zk5WNE8VpLRLBsce",
+    "name": "Alphpad Treasury",
+    "state": "verified",
+    "exchangename": "",
+    "type": ""
   }
 ]
