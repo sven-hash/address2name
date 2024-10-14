@@ -611,6 +611,12 @@
         "state": "guessed",
         "exchangename": ""
     },
+    "1A198v5yoLsQvrVQAUDhydd8UbFRFpGtKiTyonLxM9Xza": {
+        "type": "",
+        "name": "$TOP initiative",
+        "state": "verified",
+        "exchangename": ""
+    },
     "0xa344855388c9f2760e998eb2207b58de6e7d0360": {
         "type": "Uniswap",
         "name": "Uniswap V3: ALPH-USDT",
