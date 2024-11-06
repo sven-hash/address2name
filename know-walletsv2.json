@@ -628,5 +628,11 @@
         "name": "Uniswap V3: ALPH",
         "state": "verified",
         "exchangename": ""
+    },
+    "1ECaoEGg46tqaMVqN7Uv6XJXsQnbRSgZFKdsNxgSFE2EQ": {
+        "type": "",
+        "name": "AleDex",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
