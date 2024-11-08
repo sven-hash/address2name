@@ -634,5 +634,23 @@
         "name": "AleDex",
         "state": "guessed",
         "exchangename": ""
+    },
+    "18pyYQxu3RdxyM3cDjsYo3cBhBryvAfUDHTjARZFQ4iQZ": {
+        "type": "",
+        "name": "ARB (on-chain)",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "1BDyz2DEGEMo8WMj57ifhSbDMJhBykZTQqyxz51Q1TEnV": {
+        "type": "",
+        "name": "ARB (mexc deposit)",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "14CLJ5QarnFZw8MsDUfZbPcGS53UT1tVk5T85qQUX9rZV": {
+        "type": "",
+        "name": "ARB (gate deposit)",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
