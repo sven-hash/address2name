@@ -658,5 +658,11 @@
         "name": "weird ARB",
         "state": "guessed",
         "exchangename": ""
+    },
+    "15RthWz1W5wAhYaUCo8XfNK3QpUqNi3bWQ48vPBqnf6Pz" : {
+         "type": "",
+        "name": "weird ARB (gate deposit)",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
