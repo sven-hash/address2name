@@ -676,5 +676,17 @@
         "name": "Elexium.finance",
         "state": "verified",
         "exchangename": "Ex-Alph LP"
+    },
+    "14v3qNWX2hxPX1wE9gGRnfcZwTYgu2JnA6mkpFBxffrdM": {
+        "type": "",
+        "name": "RalphBuilder",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "2jpNhvAPj4GLnEdV9thSWzusZNXQkjZoTQVCUFUTkGTNW9i3dKNMrVwYYffxzm17QC5VY8rSVD6Lr32ucDHMKQ4Vuhs": {
+        "type": "",
+        "name": "RalphBuilder",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
