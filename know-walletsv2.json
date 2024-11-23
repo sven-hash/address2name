@@ -670,5 +670,11 @@
         "name": "weird ARB (mexc deposit)",
         "state": "guessed",
         "exchangename": ""
+    },
+    "27Ub32AhfC9ULKGKGUTdDGU2ehvUN55aLS4oU8nmW3x9M": {
+        "type": "Exchange",
+        "name": "Elexium.finance",
+        "state": "verified",
+        "exchangename": "Ex-Alph LP"
     }
 }
