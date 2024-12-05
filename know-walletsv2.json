@@ -694,5 +694,11 @@
         "name": "RalphBuilder",
         "state": "guessed",
         "exchangename": ""
+    },
+    "19ymyoDKsqgYtEZoJva1BQr14oeYzaCHve9nnQXSuqLiH": {
+        "type": "",
+        "name": "Bridge",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
