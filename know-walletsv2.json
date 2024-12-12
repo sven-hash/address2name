@@ -706,7 +706,14 @@
         "name": "@maticp",
         "state": "guessed",
         "exchangename": ""
-    }
+    },
+    "1DEmoThKNJ8KTwsBU8snPTjF7e9AG7fUbh9uaNemGwREp": {
+        "type": "",
+        "name": "@maticp (gateio)",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    
 
     
 }
