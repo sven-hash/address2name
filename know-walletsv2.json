@@ -706,6 +706,11 @@
         "name": "Xeggex.com",
         "state": "verified",
         "exchangename": "xeggex"
+    },
+    "17xLFH4HcJtcuJAQ5fdhFAESiGUsyoJv9cfX3QTtvRRD4": {
+        "type": "",
+        "name": "Hearst",
+        "state": "guessed",
+        "exchangename": ""
     }
-    
 }
