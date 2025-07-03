@@ -718,5 +718,11 @@
         "name": "Linx Labs",
         "state": "guessed",
         "exchangename": ""
+    },
+    "1AZzFukcZRKYN1dZhAoCJ8M7EDbbGXysaZMff9hzKRdwX": {
+        "type": "Exchange",
+        "name": "Uphold.com",
+        "state": "guessed",
+        "exchangename": "uphold"
     }
 }
