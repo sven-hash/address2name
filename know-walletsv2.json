@@ -724,5 +724,11 @@
         "name": "Uphold.com",
         "state": "guessed",
         "exchangename": "uphold"
+    },
+    "1FeYSTXiGEjmH9nHXa17B3cuXmvS8TFTysiYKWighJUUL": {
+        "type": "",
+        "name": "ARB (gate deposit)",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
