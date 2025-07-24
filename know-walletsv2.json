@@ -730,5 +730,11 @@
         "name": "ARB (gate deposit)",
         "state": "guessed",
         "exchangename": ""
+    },
+    "1C9a64XRNAA67w9n1eXsJaSXRkjz7N1W5gzL5Tc49FFNE": {
+        "type": "",
+        "name": "Aura Treasury",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
