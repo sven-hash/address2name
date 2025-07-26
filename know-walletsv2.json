@@ -736,5 +736,29 @@
         "name": "Aura Treasury",
         "state": "guessed",
         "exchangename": ""
+    },
+    "1oTEGPVaFSwgA6wfksLdxqryAiSB5qDkimgxBVEqs2XP": {
+        "type": "Pool",
+        "name": "k1pool.com",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "1ENbNfgP3QtRj73QAGV2DoEcsSNUc4yvdyj2FYBZ83if9": {
+        "type": "Pool",
+        "name": "k1pool.com",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "1BjVukHZSwBNub662oorfmndCEhtJ9u7a8rK7Q7mW4pm7": {
+        "type": "Pool",
+        "name": "k1pool.com",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "13Wixp51UeWQ8GRKnzYsmz7MEnZC6hXucSy4wFo3THjxS": {
+        "type": "Pool",
+        "name": "k1pool.com",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
