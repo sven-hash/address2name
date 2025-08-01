@@ -523,7 +523,7 @@
     },
     "226T1XspViny5o6Ce1jQR6UCGrDXuq5NBVoCFNufMEWBZ": {
         "type": "Bridge",
-        "name": "Bridge",
+        "name": "bridge.alephium.org",
         "state": "verified",
         "exchangename": ""
     },
