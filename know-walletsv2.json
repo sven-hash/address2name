@@ -605,6 +605,12 @@
         "state": "verified",
         "exchangename": ""
     },
+    "tpxjsWJSaUh5i7XzNAsTWMRtD9QvDTV9zmMNeHHS6jQB": {
+        "type": "",
+        "name": "AlphBanx Treasury",
+        "state": "guessed",
+        "exchangename": ""
+    },
     "189WnFopHTD15smsnZyvdVhF61pvmZaV52gtp1poiRmwg": {
         "type": "Pool",
         "name": "Solopool",
