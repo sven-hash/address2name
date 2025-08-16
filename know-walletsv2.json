@@ -539,6 +539,12 @@
         "state": "guessed",
         "exchangename": "coinmetro"
     },
+    "1BYU9xGsodNRGwSJkY4sxZRRooJ46DgYjncnHeYj7vUqE": {
+        "type": "Exchange",
+        "name": "Coinmetro.com (cold wallet)",
+        "state": "guessed",
+        "exchangename": "coinmetro"
+    },
     "14pnhqYUaGKcJq5kra3ARogumSFFsRoPaHSAkUB2KqoQY": {
         "type": "Exchange",
         "name": "Coinex.com",
