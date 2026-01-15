@@ -778,5 +778,17 @@
         "name": "k1pool.com",
         "state": "guessed",
         "exchangename": ""
+    },
+    "9xtw6Zs8ozBzBRG1yhUxo5DuLCKyh4NjdZ1XBv9Ky4XpBAdr2foGMWsLg8Y5V1yXkYUhD7prTFy4gf7u2EXgYr8cMAcgeVY8kpZhgMajMxuj6RzFG9GxMPnySb3GZcjBV3TPkeaioxYrHg18f8j51GtayyboiaSnxsySVpNcYdeyXx2Rpd": {
+        "type": "",
+        "name": "Alephium operations wallet",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "Eki6MBjZmhht1XqWogUCjjBYgLL1wBKyUHhz6eHBhkNPsaLY1xWdLPqp6p9t6rTqG28LxnpPb6dZsEjithNG4RWkK1ko5zZVFFLup52H14tq9iBMPCABzJ1Mjj69hudwMxNS2aF8tm9MtUq1a1ya8MYZ7hKWwtHRw7RV849fKZNoQL1w9LxeaWcNdRoPMJx61XyoN6F9CKBAqWsgkLVmNi5CZD1Ge8eTrKoQ6nxu9NbG2D5duWRmraZiQeLJtEuP7oyofdPnuyTT36d4TqpMWpF841oa8PBfep67v5HJTPZ56mpLkxGP5":  {
+        "type": "",
+        "name": "Alephium genesis wallet",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
