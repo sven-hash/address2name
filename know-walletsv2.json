@@ -785,9 +785,33 @@
         "state": "guessed",
         "exchangename": ""
     },
+    "9xunnrEE4HV15xEAWBYWv3ntNivvv9ezCWr1XsfCqiyW5XmkWga53nJnPkT4S4i1HNAjzMZcSUJgJPTLqW6u3n7Kneuppb8rAGQ2wa74VaxyDh5FWyBxbxJBQxpqBwrsbTv1EN5ZCHX2xnUrpbQF4nAqYFLRm9uNrhX4hVRL3QWB2LarEu": {
+        "type": "",
+        "name": "Alephium operations wallet",
+        "state": "guessed",
+        "exchangename": ""
+    },
     "Eki6MBjZmhht1XqWogUCjjBYgLL1wBKyUHhz6eHBhkNPsaLY1xWdLPqp6p9t6rTqG28LxnpPb6dZsEjithNG4RWkK1ko5zZVFFLup52H14tq9iBMPCABzJ1Mjj69hudwMxNS2aF8tm9MtUq1a1ya8MYZ7hKWwtHRw7RV849fKZNoQL1w9LxeaWcNdRoPMJx61XyoN6F9CKBAqWsgkLVmNi5CZD1Ge8eTrKoQ6nxu9NbG2D5duWRmraZiQeLJtEuP7oyofdPnuyTT36d4TqpMWpF841oa8PBfep67v5HJTPZ56mpLkxGP5":  {
         "type": "",
         "name": "Alephium genesis wallet",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "EnYRcDQ8sXTNYQg3DpKagp1GqKRVj8U9JVK1t65ynpMNQsErYKJwFUiZDu6jWRaysNY7tDxLHJCNwQr2S5iBa2ZNErMk7TWpEFppFvGFVpogtZzBFg7zZF9HMb4LmXjrySLeC4WZLxr72iLVJ4SH1Q3JG1cJz3KCNMsxxvhGJvFdz1mu2gz19ZngpUXD1hPUdfjUSGXCJVnJpCTFn3WH1iMekBd6s4MoteLERNP6jRcfB3V5BwCSUrvmL2tLUvrrVidHSZVnM3VTucC2kAarEAP1yKt4f6jfzVNmchz5V3RX3qd8kQTjq":  {
+        "type": "",
+        "name": "Alephium genesis wallet",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "57Ba4egoFTNFj6njuRRAJ2v4R6mUJ6B5zCfs2c4XkKF1FGdg77qAs1d39e9F55Yu9QbidNNdPUG6C2r86ptB1ntDkavKW5ab8wCTe4Av8RrugHX2s9vs78MiNL6cAwVJkoeNQroDKPsQXLc34hRzh4hFR3ZD8Q1KmQ6SVH8NA7u7ovh1YLxkPuP4MPk6VQHi6soiLboi1h8JZGzVaEx3Ffk2bGf51kXzjbqXes2bWzw1eihiAbNxuC4XEJ4rCf1ngvh71e5j3SXgeUJS45GfebWT5Q7df4MmmCfpf5QNtYrqHAZySNNzwFcp7s5AGozsTQdMka9KcfqMuQgxgRMgVwr2BkVWwC54E": {
+        "type": "",
+        "name": "Blockflow Dao",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "57Ba4egoFTNFj6njuRRAJ2v4R6mUJ6B5zCfs2c4XkKF1FGdg77qAs1d39e9F55Yu9QbidNNdPUG6C2r86ptB1ntDkavKW5ab8wCTe4Av8RrugHX2s9vs78MiNL6cAwVJkoeNQroDKPsQXLc34hRzh4hFR3ZD8Q1KmQ6SVH8NA7u7ovh1YLxkPuP4MPk6VQHi6soiLboi1h8JZGzVaEx3Ffk2bGf55dnzmS98VQgeKk94ckkMfTqzDeNZdaMKcXHKRhGyCWjrRtSbCkvfi9VCXiqqRTgt6TUnUpwdxYuCyfP1Tu4ijy9qZdETYrp3SFg2zCyhC5SJYh5oxL3zzcBaaTnxJq8WYf2KD": {
+        "type": "",
+        "name": "Blockflow Dao",
         "state": "guessed",
         "exchangename": ""
     }
