@@ -298,9 +298,11 @@ jobs:
           echo "  Empty state: $EMPTY_STATE"
 
       - name: Comment on PR
+        
         if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             let body = '';
