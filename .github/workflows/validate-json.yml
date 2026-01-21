@@ -1,4 +1,4 @@
-name: Validate known-walletsv2.json
+name: Validate know-walletsv2.json
 
 on:
   workflow_dispatch: 
@@ -8,14 +8,14 @@ on:
       - master
       - develop
     paths:
-      - 'known-walletsv2.json'
+      - 'know-walletsv2.json'
   pull_request:
     branches:
       - main
       - master
       - develop
     paths:
-      - 'known-walletsv2.json'
+      - 'know-walletsv2.json'
 
 jobs:
   validate-json:
@@ -33,19 +33,19 @@ jobs:
           echo "Files in current directory:"
           ls -la
           echo ""
-          echo "Looking for known-walletsv2.json:"
-          find . -name "known-walletsv2.json" -type f
+          echo "Looking for know-walletsv2.json:"
+          find . -name "know-walletsv2.json" -type f
           echo ""
           echo "Repository structure:"
           tree -L 2 || ls -R | head -50
 
       - name: Validate JSON syntax
         run: |
-          echo "Validating known-walletsv2.json syntax..."
+          echo "Validating know-walletsv2.json syntax..."
           
           # Check if file exists
-          if [ ! -f "known-walletsv2.json" ]; then
-            echo "❌ File known-walletsv2.json not found in current directory"
+          if [ ! -f "know-walletsv2.json" ]; then
+            echo "❌ File know-walletsv2.json not found in current directory"
             echo "Current directory: $(pwd)"
             echo "Files available:"
             ls -la
@@ -54,12 +54,12 @@ jobs:
           
           # Disable exit on error temporarily
           set +e
-          ERROR=$(jq empty known-walletsv2.json 2>&1)
+          ERROR=$(jq empty know-walletsv2.json 2>&1)
           EXIT_CODE=$?
           set -e
           
           if [ $EXIT_CODE -ne 0 ]; then
-            echo "❌ Invalid JSON syntax in known-walletsv2.json"
+            echo "❌ Invalid JSON syntax in know-walletsv2.json"
             echo ""
             echo "Error details:"
             echo "$ERROR"
@@ -70,7 +70,7 @@ jobs:
             if [ ! -z "$LINE" ]; then
               echo "📍 Error at line $LINE:"
               echo "---"
-              sed -n "$((LINE-2)),$((LINE+2))p" known-walletsv2.json 2>/dev/null | nl -ba -v $((LINE-2)) || echo "Could not display context"
+              sed -n "$((LINE-2)),$((LINE+2))p" know-walletsv2.json 2>/dev/null | nl -ba -v $((LINE-2)) || echo "Could not display context"
               echo "---"
             fi
             
@@ -81,17 +81,17 @@ jobs:
 
       - name: Validate JSON structure
         run: |
-          echo "Validating known-walletsv2.json structure..."
+          echo "Validating know-walletsv2.json structure..."
           
           # Check if root is an object
-          if ! jq -e 'type == "object"' known-walletsv2.json > /dev/null 2>&1; then
+          if ! jq -e 'type == "object"' know-walletsv2.json > /dev/null 2>&1; then
             echo "❌ Root must be an object (not an array or primitive)"
             echo "📍 Line 1: File should start with '{' and end with '}'"
             exit 1
           fi
           
           # Check if file is not empty
-          COUNT=$(jq 'length' known-walletsv2.json)
+          COUNT=$(jq 'length' know-walletsv2.json)
           if [ "$COUNT" -eq 0 ]; then
             echo "❌ File cannot be empty - must contain at least one wallet entry"
             exit 1
@@ -125,7 +125,7 @@ jobs:
             else
               empty
             end
-          ' known-walletsv2.json)
+          ' know-walletsv2.json)
           set -e
           
           if [ ! -z "$RESULT" ]; then
@@ -145,13 +145,13 @@ jobs:
           
           # Check for empty keys
           set +e
-          EMPTY_COUNT=$(jq -r 'keys[] | select(. == "")' known-walletsv2.json | wc -l)
+          EMPTY_COUNT=$(jq -r 'keys[] | select(. == "")' know-walletsv2.json | wc -l)
           set -e
           
           if [ "$EMPTY_COUNT" -gt 0 ]; then
             echo "❌ Found $EMPTY_COUNT empty wallet key(s)"
             echo "📍 Search for '\"\":' in the file"
-            grep -n '""' known-walletsv2.json | head -5
+            grep -n '""' know-walletsv2.json | head -5
             exit 1
           fi
           
@@ -173,7 +173,7 @@ jobs:
             else
               empty
             end
-          ' known-walletsv2.json)
+          ' know-walletsv2.json)
           set -e
           
           if [ ! -z "$INVALID_STATES" ]; then
@@ -212,7 +212,7 @@ jobs:
             else
               empty
             end
-          ' known-walletsv2.json)
+          ' know-walletsv2.json)
           set -e
           
           if [ ! -z "$TYPE_ERRORS" ]; then
@@ -232,7 +232,7 @@ jobs:
           
           # JSON doesn't allow duplicate keys, but we can check the raw file
           set +e
-          DUPLICATES=$(grep -o '"[^"]*"[[:space:]]*:' known-walletsv2.json | sort | uniq -d)
+          DUPLICATES=$(grep -o '"[^"]*"[[:space:]]*:' know-walletsv2.json | sort | uniq -d)
           set -e
           
           if [ ! -z "$DUPLICATES" ]; then
@@ -253,11 +253,11 @@ jobs:
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
           
-          TOTAL=$(jq 'length' known-walletsv2.json)
-          VERIFIED=$(jq '[.[] | select(.state == "verified")] | length' known-walletsv2.json)
-          PENDING=$(jq '[.[] | select(.state == "pending")] | length' known-walletsv2.json)
-          REJECTED=$(jq '[.[] | select(.state == "rejected")] | length' known-walletsv2.json)
-          EMPTY_STATE=$(jq '[.[] | select(.state == "")] | length' known-walletsv2.json)
+          TOTAL=$(jq 'length' know-walletsv2.json)
+          VERIFIED=$(jq '[.[] | select(.state == "verified")] | length' know-walletsv2.json)
+          PENDING=$(jq '[.[] | select(.state == "pending")] | length' know-walletsv2.json)
+          REJECTED=$(jq '[.[] | select(.state == "rejected")] | length' know-walletsv2.json)
+          EMPTY_STATE=$(jq '[.[] | select(.state == "")] | length' know-walletsv2.json)
           
           echo "📊 Summary:"
           echo "  Total wallets: $TOTAL"
@@ -275,7 +275,7 @@ jobs:
             let body = '';
             
             try {
-              const data = JSON.parse(fs.readFileSync('known-walletsv2.json', 'utf8'));
+              const data = JSON.parse(fs.readFileSync('know-walletsv2.json', 'utf8'));
               const total = Object.keys(data).length;
               const verified = Object.values(data).filter(w => w.state === 'verified').length;
               const pending = Object.values(data).filter(w => w.state === 'pending').length;
