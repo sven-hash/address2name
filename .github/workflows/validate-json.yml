@@ -1,6 +1,7 @@
 name: Validate known-walletsv2.json
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -15,7 +16,7 @@ on:
       - develop
     paths:
       - 'known-walletsv2.json'
-    workflow_dispatch:
+
 
 jobs:
   validate-json:
