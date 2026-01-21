@@ -239,20 +239,29 @@ jobs:
 
       - name: Check for duplicate keys
         run: |
-          echo "Checking for duplicate keys..."
+          echo "Checking for duplicate wallet addresses..."
           
-          # JSON doesn't allow duplicate keys, but we can check the raw file
+          # Extract all top-level keys (wallet addresses) and check for duplicates
           set +e
-          DUPLICATES=$(grep -o '"[^"]*"[[:space:]]*:' know-walletsv2.json | sort | uniq -d)
+          DUPLICATES=$(jq -r 'keys[]' know-walletsv2.json | sort | uniq -d)
           set -e
           
           if [ ! -z "$DUPLICATES" ]; then
-            echo "❌ Warning: Possible duplicate keys found:"
-            echo "$DUPLICATES"
+            echo "❌ Duplicate wallet addresses found:"
             echo ""
-            echo "Note: JSON will only keep the last occurrence of duplicate keys"
+            while IFS= read -r dup; do
+              if [ ! -z "$dup" ]; then
+                echo "  - $dup"
+                # Show how many times it appears in the raw file
+                COUNT=$(grep -c "\"$dup\"" know-walletsv2.json || echo "0")
+                echo "    Appears $COUNT times in file"
+              fi
+            done <<< "$DUPLICATES"
+            echo ""
+            echo "Note: Each wallet address must be unique. JSON will only keep the last occurrence."
+            exit 1
           else
-            echo "✅ No obvious duplicate keys found"
+            echo "✅ All wallet addresses are unique"
           fi
 
       - name: Display validation summary
