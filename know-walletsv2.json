@@ -812,6 +812,15 @@
     "57Ba4egoFTNFj6njuRRAJ2v4R6mUJ6B5zCfs2c4XkKF1FGdg77qAs1d39e9F55Yu9QbidNNdPUG6C2r86ptB1ntDkavKW5ab8wCTe4Av8RrugHX2s9vs78MiNL6cAwVJkoeNQroDKPsQXLc34hRzh4hFR3ZD8Q1KmQ6SVH8NA7u7ovh1YLxkPuP4MPk6VQHi6soiLboi1h8JZGzVaEx3Ffk2bGf55dnzmS98VQgeKk94ckkMfTqzDeNZdaMKcXHKRhGyCWjrRtSbCkvfi9VCXiqqRTgt6TUnUpwdxYuCyfP1Tu4ijy9qZdETYrp3SFg2zCyhC5SJYh5oxL3zzcBaaTnxJq8WYf2KD": {
         "type": "",
         "name": "Blockflow Dao",
+    "16LKM5AaHc5mDY9MnWXqxfMNiq4xD3Py7Shkk2cWiHZU4" : {
+        "type": "",
+        "name": "AlphBanx Treasury",
+        "state": "guessed",
+        "exchangename": ""
+    },
+    "3cUrnJoRtXNNJnyUYhXAUtq7Zt9nJApobt7a7PZGw2vM1C7EesbaP": {
+         "type": "",
+        "name": "AlphBanx Treasury",
         "state": "guessed",
         "exchangename": ""
     }

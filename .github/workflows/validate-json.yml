@@ -1,0 +1,341 @@
+name: Validate know-walletsv2.json
+
+on:
+  workflow_dispatch: 
+  push:
+    branches:
+      - main
+      - master
+      - develop
+    paths:
+      - 'know-walletsv2.json'
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+    paths:
+      - 'know-walletsv2.json'
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Debug - Check file location
+        run: |
+          echo "Current directory:"
+          pwd
+          echo ""
+          echo "Files in current directory:"
+          ls -la
+          echo ""
+          echo "Looking for know-walletsv2.json:"
+          find . -name "know-walletsv2.json" -type f
+          echo ""
+          echo "Repository structure:"
+          tree -L 2 || ls -R | head -50
+
+      - name: Validate JSON syntax
+        run: |
+          echo "Validating know-walletsv2.json syntax..."
+          
+          # Check if file exists
+          if [ ! -f "know-walletsv2.json" ]; then
+            echo "❌ File know-walletsv2.json not found in current directory"
+            echo "Current directory: $(pwd)"
+            echo "Files available:"
+            ls -la
+            exit 1
+          fi
+          
+          # Disable exit on error temporarily
+          set +e
+          ERROR=$(jq empty know-walletsv2.json 2>&1)
+          EXIT_CODE=$?
+          set -e
+          
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "❌ Invalid JSON syntax in know-walletsv2.json"
+            echo ""
+            echo "Error details:"
+            echo "$ERROR"
+            echo ""
+            
+            # Extract line number if available
+            LINE=$(echo "$ERROR" | grep -oP 'line \K\d+' || echo "$ERROR" | grep -oP 'at line \K\d+' || echo "")
+            if [ ! -z "$LINE" ]; then
+              echo "📍 Error at line $LINE:"
+              echo "---"
+              sed -n "$((LINE-2)),$((LINE+2))p" know-walletsv2.json 2>/dev/null | nl -ba -v $((LINE-2)) || echo "Could not display context"
+              echo "---"
+            fi
+            
+            exit 1
+          else
+            echo "✅ Valid JSON syntax"
+          fi
+
+      - name: Validate JSON structure
+        run: |
+          echo "Validating know-walletsv2.json structure..."
+          
+          # Check if root is an object
+          if ! jq -e 'type == "object"' know-walletsv2.json > /dev/null 2>&1; then
+            echo "❌ Root must be an object (not an array or primitive)"
+            echo "📍 Line 1: File should start with '{' and end with '}'"
+            exit 1
+          fi
+          
+          # Check if file is not empty
+          COUNT=$(jq 'length' know-walletsv2.json)
+          if [ "$COUNT" -eq 0 ]; then
+            echo "❌ File cannot be empty - must contain at least one wallet entry"
+            exit 1
+          fi
+          
+          echo "✅ Basic structure is valid (found $COUNT entries)"
+
+      - name: Validate required fields
+        run: |
+          echo "Validating that all entries have required fields..."
+          
+          set +e
+          RESULT=$(jq -r '
+            to_entries | 
+            map(
+              select(
+                (.value | has("type") and has("name") and has("state") and has("exchangename")) | not
+              ) | 
+              {
+                key: .key,
+                missing: [
+                  (if (.value | has("type")) then empty else "type" end),
+                  (if (.value | has("name")) then empty else "name" end),
+                  (if (.value | has("state")) then empty else "state" end),
+                  (if (.value | has("exchangename")) then empty else "exchangename" end)
+                ]
+              }
+            ) |
+            if length > 0 then
+              (map("❌ Key: \(.key)\n   Missing fields: \(.missing | join(", "))") | join("\n\n"))
+            else
+              empty
+            end
+          ' know-walletsv2.json)
+          set -e
+          
+          if [ ! -z "$RESULT" ]; then
+            echo "❌ The following wallet keys are missing required fields:"
+            echo ""
+            echo "$RESULT"
+            echo ""
+            echo "Required fields: type, name, state, exchangename"
+            exit 1
+          else
+            echo "✅ All entries have required fields"
+          fi
+
+      - name: Validate wallet keys
+        run: |
+          echo "Validating wallet keys..."
+          
+          # Check for empty keys
+          set +e
+          EMPTY_COUNT=$(jq -r 'keys[] | select(. == "")' know-walletsv2.json | wc -l)
+          set -e
+          
+          if [ "$EMPTY_COUNT" -gt 0 ]; then
+            echo "❌ Found $EMPTY_COUNT empty wallet key(s)"
+            echo "📍 Search for '\"\":' in the file"
+            grep -n '""' know-walletsv2.json | head -5
+            exit 1
+          fi
+          
+          echo "✅ All wallet keys are non-empty"
+
+      - name: Validate state values
+        run: |
+          echo "Validating state values..."
+          
+          set +e
+          INVALID_STATES=$(jq -r '
+            to_entries | 
+            map(
+              # Extract the base state (before #)
+              .value.state as $state |
+              ($state | split("#")[0]) as $base_state |
+              select(
+                $base_state != "verified" and 
+                $base_state != "guessed" and 
+                $base_state != "identified" and 
+                $base_state != "pending" and 
+                $base_state != "rejected" and 
+                $base_state != ""
+              ) | 
+              "❌ Key: \(.key)\n   Invalid state: \"\($state)\"\n   Base state: \"\($base_state)\""
+            ) |
+            if length > 0 then
+              join("\n\n")
+            else
+              empty
+            end
+          ' know-walletsv2.json)
+          set -e
+          
+          if [ ! -z "$INVALID_STATES" ]; then
+            echo "❌ Invalid state values found:"
+            echo ""
+            echo "$INVALID_STATES"
+            echo ""
+            echo "Valid base states: 'verified', 'guessed', 'identified', 'pending', 'rejected', or empty string ''"
+            echo "Note: States can have metadata after '#' (e.g., 'verified#MR-2')"
+            exit 1
+          else
+            echo "✅ All state values are valid"
+          fi
+
+      - name: Validate field types
+        run: |
+          echo "Validating field types..."
+          
+          set +e
+          TYPE_ERRORS=$(jq -r '
+            to_entries | 
+            map(
+              {
+                key: .key,
+                errors: [
+                  (if (.value.type | type != "string") then "type is \(.value.type | type), not string" else empty end),
+                  (if (.value.name | type != "string") then "name is \(.value.name | type), not string" else empty end),
+                  (if (.value.state | type != "string") then "state is \(.value.state | type), not string" else empty end),
+                  (if (.value.exchangename | type != "string") then "exchangename is \(.value.exchangename | type), not string" else empty end)
+                ] | map(select(length > 0))
+              } |
+              select(.errors | length > 0) |
+              "❌ Key: \(.key)\n   Issues: \(.errors | join(", "))"
+            ) |
+            if length > 0 then
+              join("\n\n")
+            else
+              empty
+            end
+          ' know-walletsv2.json)
+          set -e
+          
+          if [ ! -z "$TYPE_ERRORS" ]; then
+            echo "❌ Field type errors found:"
+            echo ""
+            echo "$TYPE_ERRORS"
+            echo ""
+            echo "All fields must be strings"
+            exit 1
+          else
+            echo "✅ All field types are valid"
+          fi
+
+      - name: Check for duplicate keys
+        run: |
+          echo "Checking for duplicate wallet addresses..."
+          
+          # Extract all top-level keys (wallet addresses) and check for duplicates
+          set +e
+          DUPLICATES=$(jq -r 'keys[]' know-walletsv2.json | sort | uniq -d)
+          set -e
+          
+          if [ ! -z "$DUPLICATES" ]; then
+            echo "❌ Duplicate wallet addresses found:"
+            echo ""
+            while IFS= read -r dup; do
+              if [ ! -z "$dup" ]; then
+                echo "  - $dup"
+                # Show how many times it appears in the raw file
+                COUNT=$(grep -c "\"$dup\"" know-walletsv2.json || echo "0")
+                echo "    Appears $COUNT times in file"
+              fi
+            done <<< "$DUPLICATES"
+            echo ""
+            echo "Note: Each wallet address must be unique. JSON will only keep the last occurrence."
+            exit 1
+          else
+            echo "✅ All wallet addresses are unique"
+          fi
+
+      - name: Display validation summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ All validations passed!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          
+          TOTAL=$(jq 'length' know-walletsv2.json)
+          VERIFIED=$(jq '[.[] | select(.state | startswith("verified"))] | length' know-walletsv2.json)
+          GUESSED=$(jq '[.[] | select(.state | startswith("guessed"))] | length' know-walletsv2.json)
+          IDENTIFIED=$(jq '[.[] | select(.state | startswith("identified"))] | length' know-walletsv2.json)
+          PENDING=$(jq '[.[] | select(.state | startswith("pending"))] | length' know-walletsv2.json)
+          REJECTED=$(jq '[.[] | select(.state | startswith("rejected"))] | length' know-walletsv2.json)
+          EMPTY_STATE=$(jq '[.[] | select(.state == "")] | length' know-walletsv2.json)
+          
+          echo "📊 Summary:"
+          echo "  Total wallets: $TOTAL"
+          echo "  Verified: $VERIFIED"
+          echo "  Guessed: $GUESSED"
+          echo "  Identified: $IDENTIFIED"
+          echo "  Pending: $PENDING"
+          echo "  Rejected: $REJECTED"
+          echo "  Empty state: $EMPTY_STATE"
+
+      - name: Comment on PR
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '';
+            
+            try {
+              const data = JSON.parse(fs.readFileSync('know-walletsv2.json', 'utf8'));
+              const total = Object.keys(data).length;
+              
+              // Count states by base state (before #)
+              const getBaseState = (state) => state.split('#')[0];
+              const values = Object.values(data);
+              
+              const verified = values.filter(w => getBaseState(w.state) === 'verified').length;
+              const guessed = values.filter(w => getBaseState(w.state) === 'guessed').length;
+              const identified = values.filter(w => getBaseState(w.state) === 'identified').length;
+              const pending = values.filter(w => getBaseState(w.state) === 'pending').length;
+              const rejected = values.filter(w => getBaseState(w.state) === 'rejected').length;
+              const emptyState = values.filter(w => w.state === '').length;
+              
+              if ('${{ job.status }}' === 'success') {
+                body = `✅ **JSON validation passed!**\n\n` +
+                       `📊 **Summary:**\n` +
+                       `- Total wallets: ${total}\n` +
+                       `- Verified: ${verified}\n` +
+                       `- Guessed: ${guessed}\n` +
+                       `- Identified: ${identified}\n` +
+                       `- Pending: ${pending}\n` +
+                       `- Rejected: ${rejected}\n` +
+                       `- Empty state: ${emptyState}`;
+              } else {
+                body = `❌ **JSON validation failed!**\n\n` +
+                       `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for detailed error messages.`;
+              }
+            } catch (error) {
+              body = `❌ **JSON validation failed!**\n\n` +
+                       `Error: ${error.message}\n\n` +
+                       `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`;
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
