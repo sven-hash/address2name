@@ -1,0 +1,192 @@
+name: Validate known-walletsv2.json
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+    paths:
+      - 'known-walletsv2.json'
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+    paths:
+      - 'known-walletsv2.json'
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate JSON syntax
+        run: |
+          echo "Validating known-walletsv2.json syntax..."
+          if ! jq empty known-walletsv2.json 2>/dev/null; then
+            echo "❌ Invalid JSON syntax in known-walletsv2.json"
+            exit 1
+          else
+            echo "✅ Valid JSON syntax"
+          fi
+
+      - name: Validate JSON structure
+        run: |
+          echo "Validating known-walletsv2.json structure..."
+          
+          # Check if root is an object
+          if ! jq -e 'type == "object"' known-walletsv2.json > /dev/null; then
+            echo "❌ Root must be an object"
+            exit 1
+          fi
+          
+          # Check if file is not empty
+          if [ $(jq 'length' known-walletsv2.json) -eq 0 ]; then
+            echo "❌ File cannot be empty"
+            exit 1
+          fi
+          
+          echo "✅ Basic structure is valid"
+
+      - name: Validate required fields
+        run: |
+          echo "Validating that all entries have required fields..."
+          
+          # Check each entry has all required fields: type, name, state, exchangename
+          MISSING_FIELDS=$(jq -r '
+            to_entries | 
+            map(
+              select(
+                (.value | has("type") and has("name") and has("state") and has("exchangename")) | not
+              ) | 
+              .key
+            ) | 
+            .[]
+          ' known-walletsv2.json)
+          
+          if [ ! -z "$MISSING_FIELDS" ]; then
+            echo "❌ The following wallet keys are missing required fields (type, name, state, exchangename):"
+            echo "$MISSING_FIELDS"
+            exit 1
+          else
+            echo "✅ All entries have required fields"
+          fi
+
+      - name: Validate wallet keys exist
+        run: |
+          echo "Validating that all keys are non-empty..."
+          
+          # Check for empty keys
+          EMPTY_KEYS=$(jq -r 'keys[] | select(. == "")' known-walletsv2.json)
+          
+          if [ ! -z "$EMPTY_KEYS" ]; then
+            echo "❌ Found empty wallet keys"
+            exit 1
+          fi
+          
+          # Count total entries
+          TOTAL=$(jq 'length' known-walletsv2.json)
+          echo "✅ Found $TOTAL wallet entries with valid keys"
+
+      - name: Validate state values
+        run: |
+          echo "Validating state values..."
+          
+          # Check if state values are valid (verified, pending, rejected, or empty string)
+          INVALID_STATES=$(jq -r '
+            to_entries | 
+            map(
+              select(.value.state != "verified" and .value.state != "pending" and .value.state != "rejected" and .value.state != "") | 
+              "\(.key): \(.value.state)"
+            ) | 
+            .[]
+          ' known-walletsv2.json)
+          
+          if [ ! -z "$INVALID_STATES" ]; then
+            echo "❌ Invalid state values found (must be 'verified', 'pending', 'rejected', or empty string):"
+            echo "$INVALID_STATES"
+            exit 1
+          else
+            echo "✅ All state values are valid"
+          fi
+
+      - name: Validate field types
+        run: |
+          echo "Validating field types..."
+          
+          # Check that all field values are strings
+          INVALID_TYPES=$(jq -r '
+            to_entries | 
+            map(
+              select(
+                (.value.type | type != "string") or
+                (.value.name | type != "string") or
+                (.value.state | type != "string") or
+                (.value.exchangename | type != "string")
+              ) | 
+              .key
+            ) | 
+            .[]
+          ' known-walletsv2.json)
+          
+          if [ ! -z "$INVALID_TYPES" ]; then
+            echo "❌ The following wallet keys have non-string field values:"
+            echo "$INVALID_TYPES"
+            exit 1
+          else
+            echo "✅ All field types are valid (strings)"
+          fi
+
+      - name: Display summary
+        if: success()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ All validations passed!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          jq -r '
+            "Total wallets: \(length)",
+            "Verified: \([.[] | select(.state == "verified")] | length)",
+            "Pending: \([.[] | select(.state == "pending")] | length)",
+            "Rejected: \([.[] | select(.state == "rejected")] | length)"
+          ' known-walletsv2.json
+
+      - name: Comment on PR (if validation passed)
+        if: success() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('known-walletsv2.json', 'utf8'));
+            const total = Object.keys(data).length;
+            const verified = Object.values(data).filter(w => w.state === 'verified').length;
+            const pending = Object.values(data).filter(w => w.state === 'pending').length;
+            const rejected = Object.values(data).filter(w => w.state === 'rejected').length;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `✅ **JSON validation passed!**\n\n` +
+                    `📊 **Summary:**\n` +
+                    `- Total wallets: ${total}\n` +
+                    `- Verified: ${verified}\n` +
+                    `- Pending: ${pending}\n` +
+                    `- Rejected: ${rejected}`
+            })
+
+      - name: Comment on PR (if validation failed)
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ **JSON validation failed!**\n\nPlease check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.'
+            })
