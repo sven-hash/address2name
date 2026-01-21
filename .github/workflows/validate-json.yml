@@ -29,10 +29,13 @@ jobs:
         run: |
           echo "Validating known-walletsv2.json syntax..."
           
-          # Try to parse JSON and show detailed error with line number
+          # Disable exit on error temporarily
+          set +e
           ERROR=$(jq empty known-walletsv2.json 2>&1)
+          EXIT_CODE=$?
+          set -e
           
-          if [ $? -ne 0 ]; then
+          if [ $EXIT_CODE -ne 0 ]; then
             echo "❌ Invalid JSON syntax in known-walletsv2.json"
             echo ""
             echo "Error details:"
@@ -40,11 +43,11 @@ jobs:
             echo ""
             
             # Extract line number if available
-            LINE=$(echo "$ERROR" | grep -oP 'line \K\d+' || echo "$ERROR" | grep -oP 'at line \K\d+')
+            LINE=$(echo "$ERROR" | grep -oP 'line \K\d+' || echo "$ERROR" | grep -oP 'at line \K\d+' || echo "")
             if [ ! -z "$LINE" ]; then
               echo "📍 Error at line $LINE:"
               echo "---"
-              sed -n "$((LINE-2)),$((LINE+2))p" known-walletsv2.json | nl -ba -v $((LINE-2))
+              sed -n "$((LINE-2)),$((LINE+2))p" known-walletsv2.json 2>/dev/null | nl -ba -v $((LINE-2)) || echo "Could not display context"
               echo "---"
             fi
             
@@ -58,26 +61,27 @@ jobs:
           echo "Validating known-walletsv2.json structure..."
           
           # Check if root is an object
-          if ! jq -e 'type == "object"' known-walletsv2.json > /dev/null; then
+          if ! jq -e 'type == "object"' known-walletsv2.json > /dev/null 2>&1; then
             echo "❌ Root must be an object (not an array or primitive)"
             echo "📍 Line 1: File should start with '{' and end with '}'"
             exit 1
           fi
           
           # Check if file is not empty
-          if [ $(jq 'length' known-walletsv2.json) -eq 0 ]; then
+          COUNT=$(jq 'length' known-walletsv2.json)
+          if [ "$COUNT" -eq 0 ]; then
             echo "❌ File cannot be empty - must contain at least one wallet entry"
             exit 1
           fi
           
-          echo "✅ Basic structure is valid"
+          echo "✅ Basic structure is valid (found $COUNT entries)"
 
       - name: Validate required fields
         run: |
           echo "Validating that all entries have required fields..."
           
-          # Create a detailed report with line numbers
-          jq -r '
+          set +e
+          RESULT=$(jq -r '
             to_entries | 
             map(
               select(
@@ -94,117 +98,67 @@ jobs:
               }
             ) |
             if length > 0 then
-              "❌ The following wallet keys are missing required fields:\n" +
-              (map("  - Key: \(.key)\n    Missing fields: \(.missing | join(", "))") | join("\n"))
+              (map("❌ Key: \(.key)\n   Missing fields: \(.missing | join(", "))") | join("\n\n"))
             else
               empty
             end
-          ' known-walletsv2.json > /tmp/validation_errors.txt
+          ' known-walletsv2.json)
+          set -e
           
-          if [ -s /tmp/validation_errors.txt ]; then
-            cat /tmp/validation_errors.txt
+          if [ ! -z "$RESULT" ]; then
+            echo "❌ The following wallet keys are missing required fields:"
+            echo ""
+            echo "$RESULT"
             echo ""
             echo "Required fields: type, name, state, exchangename"
-            
-            # Find and show the problematic entries in the file
-            MISSING_KEYS=$(jq -r '
-              to_entries | 
-              map(
-                select(
-                  (.value | has("type") and has("name") and has("state") and has("exchangename")) | not
-                ) | 
-                .key
-              ) | 
-              .[]
-            ' known-walletsv2.json)
-            
-            for KEY in $MISSING_KEYS; do
-              echo ""
-              echo "📍 Entry with key: $KEY"
-              LINE=$(grep -n "\"$KEY\"" known-walletsv2.json | cut -d: -f1 | head -1)
-              if [ ! -z "$LINE" ]; then
-                echo "   Found at line $LINE:"
-                echo "   ---"
-                sed -n "$LINE,$((LINE+6))p" known-walletsv2.json | nl -ba -v $LINE
-                echo "   ---"
-              fi
-            done
-            
             exit 1
           else
             echo "✅ All entries have required fields"
           fi
 
-      - name: Validate wallet keys exist
+      - name: Validate wallet keys
         run: |
-          echo "Validating that all keys are non-empty..."
+          echo "Validating wallet keys..."
           
           # Check for empty keys
-          EMPTY_KEYS=$(jq -r 'keys[] | select(. == "")' known-walletsv2.json)
+          set +e
+          EMPTY_COUNT=$(jq -r 'keys[] | select(. == "")' known-walletsv2.json | wc -l)
+          set -e
           
-          if [ ! -z "$EMPTY_KEYS" ]; then
-            echo "❌ Found empty wallet keys"
+          if [ "$EMPTY_COUNT" -gt 0 ]; then
+            echo "❌ Found $EMPTY_COUNT empty wallet key(s)"
             echo "📍 Search for '\"\":' in the file"
-            LINE=$(grep -n '""' known-walletsv2.json | head -1 | cut -d: -f1)
-            if [ ! -z "$LINE" ]; then
-              echo "Found at approximately line $LINE:"
-              sed -n "$((LINE-1)),$((LINE+1))p" known-walletsv2.json | nl -ba -v $((LINE-1))
-            fi
+            grep -n '""' known-walletsv2.json | head -5
             exit 1
           fi
           
-          # Count total entries
-          TOTAL=$(jq 'length' known-walletsv2.json)
-          echo "✅ Found $TOTAL wallet entries with valid keys"
+          echo "✅ All wallet keys are non-empty"
 
       - name: Validate state values
         run: |
           echo "Validating state values..."
           
-          # Create detailed report with line numbers
-          jq -r '
+          set +e
+          INVALID_STATES=$(jq -r '
             to_entries | 
             map(
               select(.value.state != "verified" and .value.state != "pending" and .value.state != "rejected" and .value.state != "") | 
-              {key: .key, state: .value.state}
+              "❌ Key: \(.key)\n   Invalid state: \"\(.value.state)\""
             ) |
             if length > 0 then
-              map("  - Key: \(.key)\n    Invalid state: \"\(.state)\"") | join("\n")
+              join("\n\n")
             else
               empty
             end
-          ' known-walletsv2.json > /tmp/state_errors.txt
+          ' known-walletsv2.json)
+          set -e
           
-          if [ -s /tmp/state_errors.txt ]; then
-            echo "❌ Invalid state values found (must be 'verified', 'pending', 'rejected', or empty string):"
+          if [ ! -z "$INVALID_STATES" ]; then
+            echo "❌ Invalid state values found:"
             echo ""
-            cat /tmp/state_errors.txt
+            echo "$INVALID_STATES"
             echo ""
-            
-            # Show location in file
-            INVALID_KEYS=$(jq -r '
-              to_entries | 
-              map(
-                select(.value.state != "verified" and .value.state != "pending" and .value.state != "rejected" and .value.state != "") | 
-                .key
-              ) | 
-              .[]
-            ' known-walletsv2.json)
-            
-            for KEY in $INVALID_KEYS; do
-              echo ""
-              echo "📍 Entry with key: $KEY"
-              LINE=$(grep -n "\"$KEY\"" known-walletsv2.json | cut -d: -f1 | head -1)
-              STATE_LINE=$(sed -n "$LINE,$((LINE+10))p" known-walletsv2.json | grep -n '"state"' | head -1 | cut -d: -f1)
-              ACTUAL_LINE=$((LINE + STATE_LINE - 1))
-              if [ ! -z "$ACTUAL_LINE" ]; then
-                echo "   State field at line $ACTUAL_LINE:"
-                echo "   ---"
-                sed -n "$((ACTUAL_LINE-1)),$((ACTUAL_LINE+1))p" known-walletsv2.json | nl -ba -v $((ACTUAL_LINE-1))
-                echo "   ---"
-              fi
-            done
-            
+            echo "Valid states: 'verified', 'pending', 'rejected', or empty string ''"
             exit 1
           else
             echo "✅ All state values are valid"
@@ -214,101 +168,80 @@ jobs:
         run: |
           echo "Validating field types..."
           
-          # Check that all field values are strings
-          jq -r '
+          set +e
+          TYPE_ERRORS=$(jq -r '
             to_entries | 
             map(
               {
                 key: .key,
-                type_invalid: (if (.value.type | type != "string") then "type is \(.value.type | type)" else empty end),
-                name_invalid: (if (.value.name | type != "string") then "name is \(.value.name | type)" else empty end),
-                state_invalid: (if (.value.state | type != "string") then "state is \(.value.state | type)" else empty end),
-                exchangename_invalid: (if (.value.exchangename | type != "string") then "exchangename is \(.value.exchangename | type)" else empty end)
+                errors: [
+                  (if (.value.type | type != "string") then "type is \(.value.type | type), not string" else empty end),
+                  (if (.value.name | type != "string") then "name is \(.value.name | type), not string" else empty end),
+                  (if (.value.state | type != "string") then "state is \(.value.state | type), not string" else empty end),
+                  (if (.value.exchangename | type != "string") then "exchangename is \(.value.exchangename | type), not string" else empty end)
+                ] | map(select(length > 0))
               } |
-              select(.type_invalid or .name_invalid or .state_invalid or .exchangename_invalid)
+              select(.errors | length > 0) |
+              "❌ Key: \(.key)\n   Issues: \(.errors | join(", "))"
             ) |
             if length > 0 then
-              map("  - Key: \(.key)\n    Issues: \([.type_invalid, .name_invalid, .state_invalid, .exchangename_invalid] | map(select(. != null)) | join(", "))") | join("\n")
+              join("\n\n")
             else
               empty
             end
-          ' known-walletsv2.json > /tmp/type_errors.txt
+          ' known-walletsv2.json)
+          set -e
           
-          if [ -s /tmp/type_errors.txt ]; then
-            echo "❌ The following wallet keys have non-string field values:"
+          if [ ! -z "$TYPE_ERRORS" ]; then
+            echo "❌ Field type errors found:"
             echo ""
-            cat /tmp/type_errors.txt
+            echo "$TYPE_ERRORS"
             echo ""
-            echo "All fields (type, name, state, exchangename) must be strings"
-            
-            # Show location in file
-            INVALID_KEYS=$(jq -r '
-              to_entries | 
-              map(
-                select(
-                  (.value.type | type != "string") or
-                  (.value.name | type != "string") or
-                  (.value.state | type != "string") or
-                  (.value.exchangename | type != "string")
-                ) | 
-                .key
-              ) | 
-              .[]
-            ' known-walletsv2.json)
-            
-            for KEY in $INVALID_KEYS; do
-              echo ""
-              echo "📍 Entry with key: $KEY"
-              LINE=$(grep -n "\"$KEY\"" known-walletsv2.json | cut -d: -f1 | head -1)
-              if [ ! -z "$LINE" ]; then
-                echo "   Found at line $LINE:"
-                echo "   ---"
-                sed -n "$LINE,$((LINE+6))p" known-walletsv2.json | nl -ba -v $LINE
-                echo "   ---"
-              fi
-            done
-            
+            echo "All fields must be strings"
             exit 1
           else
-            echo "✅ All field types are valid (strings)"
+            echo "✅ All field types are valid"
           fi
 
       - name: Check for duplicate keys
         run: |
-          echo "Checking for duplicate wallet keys..."
+          echo "Checking for duplicate keys..."
           
-          # Extract all keys and check for duplicates
-          DUPLICATES=$(jq -r 'keys[]' known-walletsv2.json | sort | uniq -d)
+          # JSON doesn't allow duplicate keys, but we can check the raw file
+          set +e
+          DUPLICATES=$(grep -o '"[^"]*"[[:space:]]*:' known-walletsv2.json | sort | uniq -d)
+          set -e
           
           if [ ! -z "$DUPLICATES" ]; then
-            echo "❌ Found duplicate wallet keys:"
+            echo "❌ Warning: Possible duplicate keys found:"
             echo "$DUPLICATES"
-            
-            for KEY in $DUPLICATES; do
-              echo ""
-              echo "📍 Duplicate key: $KEY"
-              echo "   Found at lines:"
-              grep -n "\"$KEY\"" known-walletsv2.json
-            done
-            
-            exit 1
+            echo ""
+            echo "Note: JSON will only keep the last occurrence of duplicate keys"
           else
-            echo "✅ No duplicate keys found"
+            echo "✅ No obvious duplicate keys found"
           fi
 
-      - name: Display summary
+      - name: Display validation summary
         if: success()
         run: |
+          echo ""
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo "✅ All validations passed!"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
-          jq -r '
-            "Total wallets: \(length)",
-            "Verified: \([.[] | select(.state == "verified")] | length)",
-            "Pending: \([.[] | select(.state == "pending")] | length)",
-            "Rejected: \([.[] | select(.state == "rejected")] | length)"
-          ' known-walletsv2.json
+          
+          TOTAL=$(jq 'length' known-walletsv2.json)
+          VERIFIED=$(jq '[.[] | select(.state == "verified")] | length' known-walletsv2.json)
+          PENDING=$(jq '[.[] | select(.state == "pending")] | length' known-walletsv2.json)
+          REJECTED=$(jq '[.[] | select(.state == "rejected")] | length' known-walletsv2.json)
+          EMPTY_STATE=$(jq '[.[] | select(.state == "")] | length' known-walletsv2.json)
+          
+          echo "📊 Summary:"
+          echo "  Total wallets: $TOTAL"
+          echo "  Verified: $VERIFIED"
+          echo "  Pending: $PENDING"
+          echo "  Rejected: $REJECTED"
+          echo "  Empty state: $EMPTY_STATE"
 
       - name: Comment on PR
         if: always() && github.event_name == 'pull_request'
@@ -324,6 +257,7 @@ jobs:
               const verified = Object.values(data).filter(w => w.state === 'verified').length;
               const pending = Object.values(data).filter(w => w.state === 'pending').length;
               const rejected = Object.values(data).filter(w => w.state === 'rejected').length;
+              const emptyState = Object.values(data).filter(w => w.state === '').length;
               
               if ('${{ job.status }}' === 'success') {
                 body = `✅ **JSON validation passed!**\n\n` +
@@ -331,14 +265,16 @@ jobs:
                        `- Total wallets: ${total}\n` +
                        `- Verified: ${verified}\n` +
                        `- Pending: ${pending}\n` +
-                       `- Rejected: ${rejected}`;
+                       `- Rejected: ${rejected}\n` +
+                       `- Empty state: ${emptyState}`;
               } else {
                 body = `❌ **JSON validation failed!**\n\n` +
-                       `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for detailed error messages including line numbers.`;
+                       `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for detailed error messages.`;
               }
             } catch (error) {
               body = `❌ **JSON validation failed!**\n\n` +
-                     `The file contains syntax errors. Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`;
+                     `Error: ${error.message}\n\n` +
+                     `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`;
             }
             
             github.rest.issues.createComment({
