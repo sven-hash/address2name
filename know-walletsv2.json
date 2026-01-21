@@ -6,7 +6,7 @@
         "exchangename": ""
     },
     "1EwqJWMZSUFHWCD5ygHVySsEHnwzTH1z7ZXQ1ikLbyNdY": {
-        "type": "Miner",
+        "type": "miner",
         "name": "cgs miner",
         "state": "verified",
         "exchangename": ""
