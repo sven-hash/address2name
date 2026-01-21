@@ -165,8 +165,18 @@ jobs:
           INVALID_STATES=$(jq -r '
             to_entries | 
             map(
-              select(.value.state != "verified" and .value.state != "guessed" and .value.state != "identified" and .value.state != "") | 
-              "❌ Key: \(.key)\n   Invalid state: \"\(.value.state)\""
+              # Extract the base state (before #)
+              .value.state as $state |
+              ($state | split("#")[0]) as $base_state |
+              select(
+                $base_state != "verified" and 
+                $base_state != "guessed" and 
+                $base_state != "identified" and 
+                $base_state != "pending" and 
+                $base_state != "rejected" and 
+                $base_state != ""
+              ) | 
+              "❌ Key: \(.key)\n   Invalid state: \"\($state)\"\n   Base state: \"\($base_state)\""
             ) |
             if length > 0 then
               join("\n\n")
@@ -181,7 +191,8 @@ jobs:
             echo ""
             echo "$INVALID_STATES"
             echo ""
-            echo "Valid states: 'verified', 'pending', 'rejected', or empty string ''"
+            echo "Valid base states: 'verified', 'guessed', 'identified', 'pending', 'rejected', or empty string ''"
+            echo "Note: States can have metadata after '#' (e.g., 'verified#MR-2')"
             exit 1
           else
             echo "✅ All state values are valid"
@@ -254,14 +265,18 @@ jobs:
           echo ""
           
           TOTAL=$(jq 'length' know-walletsv2.json)
-          VERIFIED=$(jq '[.[] | select(.state == "verified")] | length' know-walletsv2.json)
-          PENDING=$(jq '[.[] | select(.state == "pending")] | length' know-walletsv2.json)
-          REJECTED=$(jq '[.[] | select(.state == "rejected")] | length' know-walletsv2.json)
+          VERIFIED=$(jq '[.[] | select(.state | startswith("verified"))] | length' know-walletsv2.json)
+          GUESSED=$(jq '[.[] | select(.state | startswith("guessed"))] | length' know-walletsv2.json)
+          IDENTIFIED=$(jq '[.[] | select(.state | startswith("identified"))] | length' know-walletsv2.json)
+          PENDING=$(jq '[.[] | select(.state | startswith("pending"))] | length' know-walletsv2.json)
+          REJECTED=$(jq '[.[] | select(.state | startswith("rejected"))] | length' know-walletsv2.json)
           EMPTY_STATE=$(jq '[.[] | select(.state == "")] | length' know-walletsv2.json)
           
           echo "📊 Summary:"
           echo "  Total wallets: $TOTAL"
           echo "  Verified: $VERIFIED"
+          echo "  Guessed: $GUESSED"
+          echo "  Identified: $IDENTIFIED"
           echo "  Pending: $PENDING"
           echo "  Rejected: $REJECTED"
           echo "  Empty state: $EMPTY_STATE"
@@ -277,16 +292,25 @@ jobs:
             try {
               const data = JSON.parse(fs.readFileSync('know-walletsv2.json', 'utf8'));
               const total = Object.keys(data).length;
-              const verified = Object.values(data).filter(w => w.state === 'verified').length;
-              const pending = Object.values(data).filter(w => w.state === 'pending').length;
-              const rejected = Object.values(data).filter(w => w.state === 'rejected').length;
-              const emptyState = Object.values(data).filter(w => w.state === '').length;
+              
+              // Count states by base state (before #)
+              const getBaseState = (state) => state.split('#')[0];
+              const values = Object.values(data);
+              
+              const verified = values.filter(w => getBaseState(w.state) === 'verified').length;
+              const guessed = values.filter(w => getBaseState(w.state) === 'guessed').length;
+              const identified = values.filter(w => getBaseState(w.state) === 'identified').length;
+              const pending = values.filter(w => getBaseState(w.state) === 'pending').length;
+              const rejected = values.filter(w => getBaseState(w.state) === 'rejected').length;
+              const emptyState = values.filter(w => w.state === '').length;
               
               if ('${{ job.status }}' === 'success') {
                 body = `✅ **JSON validation passed!**\n\n` +
                        `📊 **Summary:**\n` +
                        `- Total wallets: ${total}\n` +
                        `- Verified: ${verified}\n` +
+                       `- Guessed: ${guessed}\n` +
+                       `- Identified: ${identified}\n` +
                        `- Pending: ${pending}\n` +
                        `- Rejected: ${rejected}\n` +
                        `- Empty state: ${emptyState}`;
