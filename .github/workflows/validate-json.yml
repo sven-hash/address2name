@@ -25,9 +25,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug - Check file location
+        run: |
+          echo "Current directory:"
+          pwd
+          echo ""
+          echo "Files in current directory:"
+          ls -la
+          echo ""
+          echo "Looking for known-walletsv2.json:"
+          find . -name "known-walletsv2.json" -type f
+          echo ""
+          echo "Repository structure:"
+          tree -L 2 || ls -R | head -50
+
       - name: Validate JSON syntax
         run: |
           echo "Validating known-walletsv2.json syntax..."
+          
+          # Check if file exists
+          if [ ! -f "known-walletsv2.json" ]; then
+            echo "❌ File known-walletsv2.json not found in current directory"
+            echo "Current directory: $(pwd)"
+            echo "Files available:"
+            ls -la
+            exit 1
+          fi
           
           # Disable exit on error temporarily
           set +e
@@ -273,8 +296,8 @@ jobs:
               }
             } catch (error) {
               body = `❌ **JSON validation failed!**\n\n` +
-                     `Error: ${error.message}\n\n` +
-                     `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`;
+                       `Error: ${error.message}\n\n` +
+                       `Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`;
             }
             
             github.rest.issues.createComment({
