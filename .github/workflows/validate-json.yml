@@ -17,6 +17,13 @@ on:
     paths:
       - 'know-walletsv2.json'
 
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+  
 jobs:
   validate-json:
     runs-on: ubuntu-latest
