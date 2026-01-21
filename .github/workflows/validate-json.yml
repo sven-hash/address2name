@@ -165,7 +165,7 @@ jobs:
           INVALID_STATES=$(jq -r '
             to_entries | 
             map(
-              select(.value.state != "verified" and .value.state != "pending" and .value.state != "rejected" and .value.state != "") | 
+              select(.value.state != "verified" and .value.state != "guessed" and .value.state != "identified" and .value.state != "") | 
               "❌ Key: \(.key)\n   Invalid state: \"\(.value.state)\""
             ) |
             if length > 0 then
