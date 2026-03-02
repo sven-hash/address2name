@@ -1,0 +1,71 @@
+name: Comment PR validation result
+
+on:
+  workflow_run:
+    workflows: ["Validate know-walletsv2.json"]
+    types: [completed]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.event == 'pull_request'
+
+    steps:
+      - name: Download validation results
+        uses: actions/download-artifact@v4
+        with:
+          name: validation-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Post PR comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+
+            const prNumber   = parseInt(fs.readFileSync('pr-number.txt', 'utf8').trim());
+            const resultRaw  = fs.readFileSync('validation-result.txt', 'utf8');
+
+            // Parse key=value pairs
+            const result = Object.fromEntries(
+              resultRaw.trim().split('\n').map(l => l.split('='))
+            );
+
+            const runUrl = `${{ github.event.workflow_run.html_url }}`;
+            const success = '${{ github.event.workflow_run.conclusion }}' === 'success';
+
+            let body;
+            if (success) {
+              body = [
+                '✅ **JSON validation passed!**',
+                '',
+                '📊 **Summary:**',
+                `- Total wallets: ${result.total}`,
+                `- Verified: ${result.verified}`,
+                `- Guessed: ${result.guessed}`,
+                `- Identified: ${result.identified}`,
+                `- Pending: ${result.pending}`,
+                `- Rejected: ${result.rejected}`,
+                `- Empty state: ${result.empty_state}`,
+              ].join('\n');
+            } else {
+              body = [
+                '❌ **JSON validation failed!**',
+                '',
+                `Please check the [workflow logs](${runUrl}) for details.`,
+                result.summary ? `\n**Error:** ${result.summary}` : '',
+              ].join('\n');
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body,
+            });
