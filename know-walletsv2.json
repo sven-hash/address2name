@@ -820,5 +820,11 @@
         "name": "AlphBanx Treasury",
         "state": "guessed",
         "exchangename": ""
+    },
+    "wcLwtehNFvLeyA98ZJ6fx7yt6eGPv4ZQ79zceBxLaba7": {
+         "type": "",
+        "name": "Linx USDT/ALPH",
+        "state": "guessed",
+        "exchangename": ""
     }
 }
