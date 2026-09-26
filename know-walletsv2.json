@@ -827,8 +827,8 @@
         "state": "guessed",
         "exchangename": ""
     },
-        "1HWUZYc3mnkybHsHuZSGhYH6wovHJiTtYG3qxnGqdvvc7": {
-        "type": "Exchange",
+    "1HWUZYc3mnkybHsHuZSGhYH6wovHJiTtYG3qxnGqdvvc7": {
+         "type": "Exchange",
         "name": "Coinex.com",
         "state": "guessed",
         "exchangename": "coinex"
