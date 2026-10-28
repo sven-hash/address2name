@@ -862,5 +862,11 @@
         "name": "Powfi rewards",
         "state": "guessed",
         "exchangename": ""
+    },
+    "13P3c6Ly61SdkpFZQG4U3cdbsEw29pPpUKv5Jg2K2Dr12": {
+        "type": "Exchange",
+        "name": "Tradeogre.com",
+        "state": "guessed",
+        "exchangename": "tradeogre"
     }
 }
