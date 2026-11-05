@@ -868,5 +868,11 @@
         "name": "Tradeogre.com",
         "state": "guessed",
         "exchangename": "tradeogre"
+    },
+    "1HTZ5emVAxqjFxr6iQyGLuwNLu6jfsTHj57JuT3fSCWph": {
+        "type": "Exchange",
+        "name": "Nonkyc.io",
+        "state": "guessed",
+        "exchangename": "nonkyc"
     }
 }
